@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { Logo } from '.'
 
 type NavLinkProps = {
 	title: string
@@ -26,7 +27,9 @@ const Navbar = () => {
 					</li>
 				</ul>
 				{/* Logo */}
-				<Link href='/'> Logo </Link>
+				<Link href='/'>
+					<Logo />
+				</Link>
 				{/* Navigation desktop - right */}
 				<ul className='ml-14 flex-1 flex items-center uppercase '>
 					<li className='inline-block m-auto text-lg'>
