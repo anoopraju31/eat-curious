@@ -1,3 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	/* Navbar */
+	--nav-height-sm: 100px;
+	--nav-height-lg: 120px;
+	--nav-padding-x-lg: 107px;
+	--nav-padding-x-sm: 60px;
+	--nav-padding-x: 25px;
+
+	/* Colors */
+	--white: #fff6f6;
+
+	/* Font */
+	--text-font: 'Rubik', sans-serif;
+}
