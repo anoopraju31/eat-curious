@@ -3,7 +3,7 @@ import { SpinnerSticker, Ticker } from './components'
 
 export default function Home() {
 	return (
-		<main className='h-[200vh] bg-[var(--black)] '>
+		<main className='h-[2000vh] bg-[var(--black)] '>
 			<Hero />
 			<Ticker />
 			<SpinnerSticker />

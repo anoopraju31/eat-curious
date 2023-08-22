@@ -20,6 +20,7 @@ const config: Config = {
 				squiggle2: 'url("/images/squiggle2.svg")',
 				squiggle3: 'url("/images/squiggle3.svg")',
 				flower: 'url("/images/flower.svg")',
+				sticker: 'url("/images/sticker.svg")',
 			},
 			transitionProperty: {},
 			screens: {
