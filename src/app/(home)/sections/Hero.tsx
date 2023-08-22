@@ -62,7 +62,7 @@ const Hero = () => {
 					}}
 					viewport={{ once: true }}
 					transition={{ duration: 0.5, delay: 0.4 }}
-					className='-mt-20 md:-mt-[100px] xl:-mt-[150px] mb-auto relative lg:-top-[5vh] text-[30vw] md:text-[20vw] lg:text-[clamp(1vw,19.5vw,35vh)] font-heading-narrow font-extrabold leading-[0.85em] uppercase tracking-[-0.01em] pointer-events-none select-none'>
+					className='-mt-20 md:-mt-[100px] xl:-mt-[150px] mb-auto relative lg:-top-[5%] text-[30vw] md:text-[20vw] lg:text-[clamp(1vw,19.5vw,35vh)] font-heading-narrow font-extrabold leading-[0.85em] uppercase tracking-[-0.01em] pointer-events-none select-none'>
 					{' '}
 					Your Mind{' '}
 				</motion.h1>
