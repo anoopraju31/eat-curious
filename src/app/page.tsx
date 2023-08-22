@@ -1,5 +1,5 @@
 import { Hero } from './(home)/sections'
-import { SpinnerSticker, Ticker } from './components'
+import { BrandsCarousel, SpinnerSticker, Ticker } from './components'
 
 export default function Home() {
 	return (
@@ -7,6 +7,7 @@ export default function Home() {
 			<Hero />
 			<Ticker />
 			<SpinnerSticker />
+			<BrandsCarousel />
 		</main>
 	)
 }
