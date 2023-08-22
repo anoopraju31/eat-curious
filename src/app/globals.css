@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Coda:wght@800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -12,6 +13,15 @@
 	--nav-padding-x-sm: 60px;
 	--nav-padding-x: 25px;
 
+	/* General */
+	--padding-y: 40px;
+	--padding-y-sm: 100px;
+	--padding-y-lg: 120px;
+
+	--padding-x: 25px;
+	--padding-x-sm: 60px;
+	--padding-x-lg: 107px;
+
 	/* Colors */
 	--white: #fff6f6;
 	--pink: #ff73b5;
@@ -19,4 +29,21 @@
 
 	/* Font */
 	--text-font: 'Rubik', sans-serif;
+	--heading-narrow: 'obviously-narrow', 'Helvetica', sans-serif;
+	/* 'Coda', cursive; */
+
+	/* Hero Section */
+	--hero-height: calc(100vh - 80px);
+	--hero-height-sm: calc(100vh - 100px);
+	--hero-height-lg: calc(100vh - 120px);
+}
+
+.background {
+	background: no-repeat center center;
+}
+
+@media (min-width: 1024px) and (max-height: 1024px) {
+	.img-container {
+		width: 50vh !important;
+	}
 }
