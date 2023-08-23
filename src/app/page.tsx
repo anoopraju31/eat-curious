@@ -1,4 +1,4 @@
-import { Hero } from './(home)/sections'
+import { Curious, Hero } from './(home)/sections'
 import { BrandsCarousel, SpinnerSticker, Ticker } from './components'
 
 export default function Home() {
@@ -8,6 +8,7 @@ export default function Home() {
 			<Ticker />
 			<SpinnerSticker />
 			<BrandsCarousel />
+			<Curious />
 		</main>
 	)
 }
