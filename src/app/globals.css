@@ -37,13 +37,3 @@
 	--hero-height-sm: calc(100vh - 100px);
 	--hero-height-lg: calc(100vh - 120px);
 }
-
-.background {
-	background: no-repeat center center;
-}
-
-@media (min-width: 1024px) and (max-height: 1024px) {
-	.img-container {
-		width: 50vh !important;
-	}
-}

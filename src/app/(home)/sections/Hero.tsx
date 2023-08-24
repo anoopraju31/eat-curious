@@ -37,7 +37,7 @@ const Hero = () => {
 					}}
 					viewport={{ once: true }}
 					transition={{ duration: 0.5, delay: 0.2 }}
-					className='md:w-[clamp(30vw,70vw,60vh)] lg:w-[40vw] img-container md:mx-auto relative md:aspect-[592/379]'>
+					className='md:w-[clamp(30vw,70vw,60vh)] lg:w-[40vw] minw-maxh-lg:w-[50vh] md:mx-auto relative md:aspect-[592/379]'>
 					<span className='absolute -top-1/4 left-1/2 bg-no-repeat bg-center bg-contain bg-squiggle1 w-[37px] h-[60px] pointer-events-none'></span>
 					<span className='absolute top-[37%] -left-[6%] bg-no-repeat bg-center bg-contain bg-squiggle3 w-[52px] h-[76px] pointer-events-none'></span>
 					<span className='absolute top-[40%] -right-[3%] bg-no-repeat bg-center bg-contain bg-squiggle2 w-[80px] h-[100px] pointer-events-none'></span>

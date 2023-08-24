@@ -3,12 +3,14 @@ import { BrandsCarousel, SpinnerSticker, Ticker } from './components'
 
 export default function Home() {
 	return (
-		<main className='h-[2000vh] bg-[var(--black)] '>
+		<div className='h-[2000vh] bg-[var(--black)] '>
 			<Hero />
-			<Ticker />
-			<SpinnerSticker />
-			<BrandsCarousel />
-			<Curious />
-		</main>
+			<main className='w-full mx-auto'>
+				<Ticker />
+				<SpinnerSticker />
+				<BrandsCarousel />
+				<Curious />
+			</main>
+		</div>
 	)
 }
