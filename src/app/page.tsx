@@ -1,5 +1,6 @@
 import {
 	Curious,
+	Features,
 	Flavoursome,
 	Hero,
 	Inspiring,
@@ -20,6 +21,7 @@ export default function Home() {
 				<Inspiring />
 				<Positivity />
 				<Flavoursome />
+				<Features />
 			</main>
 		</div>
 	)
