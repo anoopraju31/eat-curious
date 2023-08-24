@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 
 const Hero = () => {
 	return (
-		<header className='w-full h-auto min-h-screen text-center relative bg-[var(--black)] '>
+		<header className='w-full h-auto min-h-screen text-center relative bg-[var(--black)] z-50'>
 			{/* min-h-screen sm: */}
 			<div className='w-full max-w-[100vw] h-full min-h-screen sm:min-h-[var(--hero-height)] lg:min-h-screen py-[var(--padding-y)] sm:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] flex flex-col justify-around text-[var(--white)]'>
 				<motion.h1

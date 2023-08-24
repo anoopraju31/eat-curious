@@ -3,7 +3,7 @@ import React from 'react'
 
 const Curious = () => {
 	return (
-		<section className='w-full lg:min-h-screen mt-[5vw] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--pink)] text-[var(--black)] z-10 relative bottom-0 lg:flex lg:flow-row lg:flex-nowrap lg:items-center lg:justify-between before:content-[""] before:block before:w-full before:absolute before:-top-[5vw] before:left-0 before:right-0 before:h-[5vw] before:bg-no-repeat before:bg-top before:bg-curve before:bg-curve-size before:bg-[var(--black)] before:z-50'>
+		<section className='w-full lg:min-h-screen mt-[5vw] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--pink)] text-[var(--black)] z-50 relative bottom-0 lg:flex lg:flow-row lg:flex-nowrap lg:items-center lg:justify-between before:content-[""] before:block before:w-full before:absolute before:-top-[5vw] before:left-0 before:right-0 before:h-[5vw] before:bg-no-repeat before:bg-top before:bg-curve before:bg-curve-size before:bg-[var(--black)] before:z-50'>
 			<div className='w-[70%] mx-auto -mb-4 z-10 relative text-center lg:hidden'>
 				<h3 className='font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase mb-[0.2em] text-5xl md:text-[88px] minw-maxh-md:text-[76px]'>
 					Curious... by name, by nature
@@ -24,7 +24,7 @@ const Curious = () => {
 				<h3 className='hidden lg:block mb-11 1600:-mr-[100px] font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase minw-lg-maxh-md:text-[56px] text-[88px] 1600:text-[6vw]'>
 					Curious... by name, by nature
 				</h3>
-				<p className='lg:max-w-[392px] mb-5 font-text-font text-xl font-light'>
+				<p className='lg:max-w-[392px] mb-5 font-text-font text-base lg:text-xl font-light'>
 					It’s what inspires us to whip up, throw together, tear, shake, and
 					break the rules – on a mission to redefine food for a new generation.
 				</p>

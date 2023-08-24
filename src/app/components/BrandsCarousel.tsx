@@ -20,7 +20,7 @@ const Brands = ({ brand }: Props) => (
 
 const BrandsCarousel = () => {
 	return (
-		<div className='relative w-full -mt-[2px] py-[50px] lg:py-[100px] bg-[var(--black)] flex flex-row flex-nowrap z-10 overflow-hidden whitespace-nowrap text-[var(--black)] font-extrabold tracking-[0.01em]'>
+		<div className='relative w-full -mt-[2px] py-[50px] lg:py-[100px] bg-[var(--black)] flex flex-row flex-nowrap z-50 overflow-hidden whitespace-nowrap text-[var(--black)] font-extrabold tracking-[0.01em]'>
 			<div className='inline-block overflow-hidden flex-shrink-0 animate-marquee'>
 				{brands.map((brand) => (
 					<Brands key={brand} brand={brand} />

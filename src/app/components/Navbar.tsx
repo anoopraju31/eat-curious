@@ -4,7 +4,7 @@ import { Logo } from '.'
 
 const Navbar = () => {
 	return (
-		<nav className='block w-full h-16 sm:h-auto z-50 absolute md:bottom-auto text-[var(--white)] font-heading-narrow'>
+		<nav className='block w-full h-16 sm:h-auto z-[9999] absolute md:bottom-auto text-[var(--white)] font-heading-narrow'>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
 				<ul className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
