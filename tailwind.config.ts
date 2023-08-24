@@ -23,6 +23,7 @@ const config: Config = {
 				squiggle2: 'url("/images/squiggle2.svg")',
 				squiggle3: 'url("/images/squiggle3.svg")',
 				squiggle4: 'url("/images/squiggle4.svg")',
+				squiggle5: 'url("/images/squiggle5.svg")',
 				flower: 'url("/images/flower.svg")',
 				sticker: 'url("/images/sticker.svg")',
 				curve: 'url("/images/curve.svg")',
