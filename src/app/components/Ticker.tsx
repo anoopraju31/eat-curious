@@ -12,7 +12,7 @@ const TickerTapeItem = ({ title }: Props) => (
 
 const Ticker = () => {
 	return (
-		<div className='fixed bottom-0 w-screen z-50 bg-[var(--pink)] overflow-hidden text-[var(--black)] font-heading-narrow text-sm md:text-lg font-extrabold uppercase tracking-[0.01em] pt-[0.7em] pb-[1.1em] whitespace-nowrap'>
+		<div className='fixed bottom-0 w-screen z-[9999] bg-[var(--pink)] overflow-hidden text-[var(--black)] font-heading-narrow text-sm md:text-lg font-extrabold uppercase tracking-[0.01em] pt-[0.7em] pb-[1.1em] whitespace-nowrap'>
 			<div className='inline-block min-w-screen animate-marquee'>
 				<TickerTapeItem title='Dairy Free' />
 				<TickerTapeItem title='Package with flavour' />

@@ -1,4 +1,4 @@
-import { Curious, Hero, Inspiring } from './(home)/sections'
+import { Curious, Hero, Inspiring, Positivity } from './(home)/sections'
 import { BrandsCarousel, SpinnerSticker, Ticker } from './components'
 
 export default function Home() {
@@ -12,6 +12,7 @@ export default function Home() {
 				{/* Sections */}
 				<Curious />
 				<Inspiring />
+				<Positivity />
 			</main>
 		</div>
 	)
