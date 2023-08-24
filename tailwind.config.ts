@@ -35,6 +35,7 @@ const config: Config = {
 			transitionProperty: {},
 			screens: {
 				tall: { raw: '(min-height: 800px)' },
+				'600': { raw: '(min-width: 600px)' },
 				'1600': { raw: '(min-width: 1600px)' },
 				'minw-maxh-md': { raw: ' (min-width: 768px) and (max-height: 768px)' },
 				'minw-lg-maxh-md': {
