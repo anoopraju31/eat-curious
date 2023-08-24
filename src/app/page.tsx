@@ -2,6 +2,7 @@ import {
 	Curious,
 	Features,
 	Flavoursome,
+	Foods,
 	Hero,
 	Inspiring,
 	Positivity,
@@ -22,6 +23,7 @@ export default function Home() {
 				<Positivity />
 				<Flavoursome />
 				<Features />
+				<Foods />
 			</main>
 		</div>
 	)
