@@ -23,6 +23,9 @@ const Foods = () => {
 				))}
 			</div>
 			{/* View More Button */}
+			<div className=''>
+				<Button />
+			</div>
 		</section>
 	)
 }
