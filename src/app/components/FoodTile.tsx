@@ -1,25 +1,8 @@
 'use client'
+import { marquee } from '@/utils/animations'
 import { motion, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import Link from 'next/link'
-
-const marquee = {
-	initial: {
-		x: 0,
-	},
-	animate: {
-		x: ['0%', '-100%'],
-		transition: {
-			x: {
-				repeat: Infinity,
-				repeatType: 'loop',
-
-				duration: 1,
-				ease: 'linear',
-			},
-		},
-	},
-}
 
 type Props = {
 	name: string
