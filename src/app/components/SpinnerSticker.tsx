@@ -6,8 +6,6 @@ const SpinnerSticker = () => {
 	const { scrollY } = useScroll()
 	const rotate = useTransform(scrollY, [0, 1000], [0, 360], { clamp: false })
 
-	console.log(rotate)
-
 	return (
 		<motion.div
 			transition={{ type: 'spring', stiffness: 100 }}
