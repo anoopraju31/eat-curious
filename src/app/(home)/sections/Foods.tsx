@@ -1,4 +1,4 @@
-import { Drooling, FoodTile } from '@/app/components'
+import { Button, Drooling, FoodTile } from '@/app/components'
 import { foods } from '@/utils/foodTiles'
 import React from 'react'
 
@@ -23,8 +23,8 @@ const Foods = () => {
 				))}
 			</div>
 			{/* View More Button */}
-			<div className=''>
-				<Button />
+			<div className='mb-5 flex justify-center'>
+				<Button title='View All' link='/products' />
 			</div>
 		</section>
 	)
