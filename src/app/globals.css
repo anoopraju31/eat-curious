@@ -43,4 +43,11 @@
 	--hero-height: calc(100vh - 80px);
 	--hero-height-sm: calc(100vh - 100px);
 	--hero-height-lg: calc(100vh - 120px);
+
+	/* Intrigued Section */
+	--content-width: calc(100vw - 2rem);
+	--content-width-md: 600px;
+	--content-width-lg: 700px;
+	--content-width-xl: 940px;
+	--content-width-3xl: 1240px;
 }
