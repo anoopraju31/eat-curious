@@ -6,6 +6,7 @@ import {
 	Growing,
 	Hero,
 	Inspiring,
+	Intrigued,
 	Positivity,
 } from './(home)/sections'
 import { BrandsCarousel, SpinnerSticker, Ticker } from './components'
@@ -26,6 +27,7 @@ export default function Home() {
 				<Features />
 				<Foods />
 				<Growing />
+				<Intrigued />
 			</main>
 		</div>
 	)
