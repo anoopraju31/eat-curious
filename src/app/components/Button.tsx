@@ -24,7 +24,7 @@ const Button = ({ title, link }: Props) => {
 			onMouseLeave={handleMouseLeaveControls}
 			href={link}
 			className='relative group font-heading-narrow font-extrabold text-center text-xl md:text-2xl bg-[var(--pink)] text-[var(--black)] px-[0.7em] pt-[0.2em] pb-[0.6em] tracking-[0.01em] uppercase rounded'>
-			<span className='group-hover:opacity-0'> {title} </span>
+			<span className='opacity-0'> {title} </span>
 			<span className='absolute top-0 left-0 bottom-0 w-full overflow-hidden pointer-events-none whitespace-nowrap'>
 				<motion.span
 					variants={marquee}
