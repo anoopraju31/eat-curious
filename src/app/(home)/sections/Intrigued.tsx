@@ -1,6 +1,7 @@
+'use client'
 import { Button } from '@/app/components'
 import Image from 'next/image'
-import React from 'react'
+import { motion } from 'framer-motion'
 
 const Intrigued = () => {
 	return (
@@ -15,13 +16,25 @@ const Intrigued = () => {
 					</p>
 				</div>
 
-				<Image
-					src='/images/home-6.svg'
-					alt=''
-					width={622}
-					height={619}
-					className='blur-0 md:max-w-[50vh] 1600:max-w-[758px] mx-auto -mt-[100px] relative z-0'
-				/>
+				<motion.div
+					initial={{
+						filter: 'blur(10px)',
+					}}
+					whileInView={{
+						filter: 'blur(0px)',
+					}}
+					viewport={{ once: true }}
+					transition={{
+						duration: 1,
+					}}>
+					<Image
+						src='/images/home-6.svg'
+						alt=''
+						width={622}
+						height={619}
+						className='md:max-w-[50vh] 1600:max-w-[758px] mx-auto -mt-[100px] relative z-0'
+					/>
+				</motion.div>
 			</div>
 		</section>
 	)

@@ -23,7 +23,7 @@ const Button = ({ title, link }: Props) => {
 			onMouseEnter={handleMouseEnterControls}
 			onMouseLeave={handleMouseLeaveControls}
 			href={link}
-			className='relative group font-heading-narrow font-extrabold text-center text-xl md:text-2xl bg-[var(--pink)] text-[var(--black)] px-[0.7em] pt-[0.2em] pb-[0.6em] tracking-[0.01em] uppercase rounded'>
+			className='relative group font-heading-narrow font-extrabold text-center text-xl md:text-2xl bg-[var(--pink)] text-[var(--black)] px-[0.7em] pt-[0.2em] pb-[0.2em] tracking-[0.01em] uppercase rounded'>
 			<span className='opacity-0'> {title} </span>
 			<span className='absolute top-0 left-0 bottom-0 w-full overflow-hidden pointer-events-none whitespace-nowrap'>
 				<motion.span
@@ -38,7 +38,7 @@ const Button = ({ title, link }: Props) => {
 					variants={marquee}
 					initial='initial'
 					animate={controls}
-					className='inline-block text-center px-[0.7em] pt-[0.2em] pb-[0.6em] '>
+					className='inline-block text-center px-[0.7em] pt-[0.2em] pb-[0.6em] text-[20px] md:text-[24px]'>
 					{' '}
 					{title}{' '}
 				</motion.span>
