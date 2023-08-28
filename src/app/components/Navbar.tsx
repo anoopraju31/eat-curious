@@ -1,10 +1,25 @@
+'use client'
+
 import Link from 'next/link'
-import React from 'react'
+import { useState } from 'react'
 import { Logo } from '.'
+import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 
 const Navbar = () => {
+	const [scrollHeight, setScrollHeight] = useState<number>(0)
+	const [showNavbar, setShowNavbar] = useState<boolean>(true)
+	const { scrollY } = useScroll()
+
+	useMotionValueEvent(scrollY, 'change', (latest) => {
+		setShowNavbar(scrollHeight > latest ? true : false)
+		setScrollHeight(latest)
+	})
+
 	return (
-		<nav className='block w-full h-16 sm:h-auto z-[9999] absolute md:bottom-auto text-[var(--white)] font-heading-narrow'>
+		<motion.nav
+			className={`block w-full h-16 sm:h-auto z-[9999] absolute md:fixed ${
+				showNavbar ? 'top-0' : '-top-40'
+			} md:bottom-auto text-[var(--white)] font-heading-narrow transition-all duration-500`}>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
 				<ul className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
@@ -44,7 +59,7 @@ const Navbar = () => {
 					</div>
 				</button>
 			</div>
-		</nav>
+		</motion.nav>
 	)
 }
 
