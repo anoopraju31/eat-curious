@@ -1,7 +1,7 @@
 'use client'
 
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useLayoutEffect } from 'react'
 import { Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 
@@ -12,51 +12,72 @@ const Navbar = () => {
 	const { scrollY } = useScroll()
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
-		const inspiringSection = document.querySelector(
-			'#inspiring',
-		) as HTMLElement | null
-		const flavoursomeSection = document.querySelector(
-			'#flavoursome',
-		) as HTMLElement | null
-		const featuresSection = document.querySelector(
-			'#features',
-		) as HTMLElement | null
-		const foodsSection = document.querySelector('#foods') as HTMLElement | null
-		const intriguedSection = document.querySelector(
-			'#intrigued',
-		) as HTMLElement | null
-
-		const inspiringOffsetTop: number = inspiringSection
-			? inspiringSection.offsetTop
-			: 0
-		const flavoursomeOffsetTop: number = flavoursomeSection
-			? flavoursomeSection.offsetTop
-			: 0
-		const featuresOffsetTop: number = featuresSection
-			? featuresSection.offsetTop
-			: 0
-		const foodsOffsetTop: number = foodsSection ? foodsSection.offsetTop : 0
-		const intriguedOffsetTop: number = intriguedSection
-			? intriguedSection.offsetTop
-			: 0
-
 		setShowNavbar(scrollHeight > latest ? true : false)
 		setScrollHeight(latest)
-
-		if (latest < inspiringOffsetTop) setTextWhite(true)
-		else if (latest >= inspiringOffsetTop && latest < flavoursomeOffsetTop)
-			setTextWhite(false)
-		else if (latest >= flavoursomeOffsetTop && latest < featuresOffsetTop)
-			setTextWhite(true)
-		else if (latest >= featuresOffsetTop && latest < foodsOffsetTop)
-			setTextWhite(false)
-		else if (
-			latest >= foodsOffsetTop &&
-			latest < intriguedOffsetTop - window.innerHeight / 4
-		)
-			setTextWhite(true)
-		else setTextWhite(false)
 	})
+
+	useLayoutEffect(() => {
+		function scrollHandler() {
+			const aboutSection = document.querySelector(
+				'#about',
+			) as HTMLElement | null
+			const flavoursomeSection = document.querySelector(
+				'#flavoursome',
+			) as HTMLElement | null
+			const featuresSection = document.querySelector(
+				'#features',
+			) as HTMLElement | null
+			const foodsSection = document.querySelector(
+				'#foods',
+			) as HTMLElement | null
+			const intriguedSection = document.querySelector(
+				'#intrigued',
+			) as HTMLElement | null
+
+			const aboutOffsetTop: number = aboutSection ? aboutSection.offsetTop : 0
+			const flavoursomeOffsetTop: number = flavoursomeSection
+				? flavoursomeSection.offsetTop
+				: 0
+			const featuresOffsetTop: number = featuresSection
+				? featuresSection.offsetTop
+				: 0
+			const foodsOffsetTop: number = foodsSection ? foodsSection.offsetTop : 0
+			const intriguedOffsetTop: number = intriguedSection
+				? intriguedSection.offsetTop
+				: 0
+
+			if (scrollHeight < aboutOffsetTop) setTextWhite(true)
+			else if (
+				scrollHeight >= aboutOffsetTop &&
+				scrollHeight <
+					featuresOffsetTop - 2 * (flavoursomeSection?.clientHeight || 0)
+			)
+				setTextWhite(false)
+			else if (
+				scrollHeight >=
+					featuresOffsetTop - (flavoursomeSection?.clientHeight || 0) &&
+				scrollHeight < featuresOffsetTop
+			)
+				setTextWhite(true)
+			else if (
+				scrollHeight >= featuresOffsetTop &&
+				scrollHeight < foodsOffsetTop
+			)
+				setTextWhite(false)
+			else if (
+				scrollHeight >= foodsOffsetTop &&
+				scrollHeight < intriguedOffsetTop - window.innerHeight / 4
+			)
+				setTextWhite(true)
+			else setTextWhite(false)
+		}
+
+		window.addEventListener('scroll', scrollHandler)
+
+		return () => {
+			window.removeEventListener('scroll', scrollHandler)
+		}
+	}, [scrollHeight])
 
 	return (
 		<motion.nav
