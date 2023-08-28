@@ -5,7 +5,7 @@ const Curious = () => {
 	return (
 		<section
 			id='about'
-			className='w-full lg:min-h-screen mt-[5vw] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--pink)] text-[var(--black)] z-50 relative bottom-0 lg:flex lg:flow-row lg:flex-nowrap lg:items-center lg:justify-between before:content-[""] before:block before:w-full before:absolute before:-top-[5vw] before:left-0 before:right-0 before:h-[5vw] before:bg-no-repeat before:bg-top before:bg-curve before:bg-curve-size before:bg-[var(--black)] before:z-50'>
+			className='w-full lg:min-h-screen mt-[5vw] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--pink)] text-[var(--black)] z-50 relative bottom-0 lg:flex lg:flow-row lg:flex-nowrap lg:items-center lg:justify-between before:content-[""] before:block before:w-full before:absolute before:-top-[5vw] before:left-0 before:right-0 before:h-[5vw] before:bg-repeat before:bg-top before:bg-curve md:before:bg-curve-md xl:before:bg-curve-xl before:bg-curve-size xl:before:bg-curve-size-xl before:bg-[var(--black)] before:z-50'>
 			<div className='w-[70%] mx-auto -mb-4 z-10 relative text-center lg:hidden'>
 				<h3 className='font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase mb-[0.2em] text-5xl md:text-[88px] minw-maxh-md:text-[76px]'>
 					Curious... by name, by nature

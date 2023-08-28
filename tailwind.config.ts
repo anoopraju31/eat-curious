@@ -17,6 +17,7 @@ const config: Config = {
 			},
 			backgroundSize: {
 				'curve-size': '101% auto',
+				'curve-size-xl': '106% auto',
 			},
 			backgroundImage: {
 				squiggle1: 'url("/images/squiggle1.svg")',
