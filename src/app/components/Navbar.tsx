@@ -11,37 +11,35 @@ const Navbar = () => {
 	const [textWhite, setTextWhite] = useState<boolean>(true)
 	const { scrollY } = useScroll()
 
-	const inspiringSection = document.querySelector(
-		'#inspiring',
-	) as HTMLElement | null
-	const flavoursomeSection = document.querySelector(
-		'#flavoursome',
-	) as HTMLElement | null
-	const featuresSection = document.querySelector(
-		'#features',
-	) as HTMLElement | null
-	const foodsSection = document.querySelector('#foods') as HTMLElement | null
-	const intriguedSection = document.querySelector(
-		'#intrigued',
-	) as HTMLElement | null
-
-	const inspiringOffsetTop: number = inspiringSection
-		? inspiringSection.offsetTop
-		: 0
-	const flavoursomeOffsetTop: number = flavoursomeSection
-		? flavoursomeSection.offsetTop
-		: 0
-	const featuresOffsetTop: number = featuresSection
-		? featuresSection.offsetTop
-		: 0
-	const foodsOffsetTop: number = foodsSection ? foodsSection.offsetTop : 0
-	const intriguedOffsetTop: number = intriguedSection
-		? intriguedSection.offsetTop
-		: 0
-
-	console.log(intriguedOffsetTop)
-
 	useMotionValueEvent(scrollY, 'change', (latest) => {
+		const inspiringSection = document.querySelector(
+			'#inspiring',
+		) as HTMLElement | null
+		const flavoursomeSection = document.querySelector(
+			'#flavoursome',
+		) as HTMLElement | null
+		const featuresSection = document.querySelector(
+			'#features',
+		) as HTMLElement | null
+		const foodsSection = document.querySelector('#foods') as HTMLElement | null
+		const intriguedSection = document.querySelector(
+			'#intrigued',
+		) as HTMLElement | null
+
+		const inspiringOffsetTop: number = inspiringSection
+			? inspiringSection.offsetTop
+			: 0
+		const flavoursomeOffsetTop: number = flavoursomeSection
+			? flavoursomeSection.offsetTop
+			: 0
+		const featuresOffsetTop: number = featuresSection
+			? featuresSection.offsetTop
+			: 0
+		const foodsOffsetTop: number = foodsSection ? foodsSection.offsetTop : 0
+		const intriguedOffsetTop: number = intriguedSection
+			? intriguedSection.offsetTop
+			: 0
+
 		setShowNavbar(scrollHeight > latest ? true : false)
 		setScrollHeight(latest)
 
