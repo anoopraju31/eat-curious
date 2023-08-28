@@ -3,7 +3,9 @@ import React from 'react'
 
 const Inspiring = () => {
 	return (
-		<section className='w-full lg:min-h-screen px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--white)] text-[var(--black)] z-40 sticky bottom-0 lg:flex lg:flow-row lg:flex-nowrap lg:items-center lg:justify-between'>
+		<section
+			id='inspiring'
+			className='w-full lg:min-h-screen px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--white)] text-[var(--black)] z-40 sticky bottom-0 lg:flex lg:flow-row lg:flex-nowrap lg:items-center lg:justify-between'>
 			<div className='w-[70%] mx-auto -mb-4 z-10 relative text-center lg:hidden'>
 				<h3 className='font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase mb-[0.2em] text-5xl md:text-[88px] minw-maxh-md:text-[76px]'>
 					Inspiring good through tasty goodness

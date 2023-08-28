@@ -30,7 +30,9 @@ const FeatureCard = ({ title, description, img }: Props) => (
 
 const Features = () => {
 	return (
-		<section className='relative lg:sticky minw-lg-maxh-md:static lg:top-0 w-full lg:min-h-screen px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--white)] minw-maxh-lg:py-[10vh] text-[var(--black)] text-center flex flex-wrap justify-between'>
+		<section
+			id='features'
+			className='relative lg:sticky minw-lg-maxh-md:static lg:top-0 w-full lg:min-h-screen px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--white)] minw-maxh-lg:py-[10vh] text-[var(--black)] text-center flex flex-wrap justify-between'>
 			{/* Heading */}
 			<div className='w-full'>
 				<h4 className='w-full mb-4 lg:mb-12 font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase text-[40px] md:text-[76px] lg:text-[56px] '>
