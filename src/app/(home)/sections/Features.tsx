@@ -1,5 +1,7 @@
+'use client'
 import Image from 'next/image'
-import React from 'react'
+import { pop } from '@/utils/animations'
+import { motion } from 'framer-motion'
 
 type Props = {
 	title: string
@@ -7,7 +9,12 @@ type Props = {
 	img: string
 }
 const FeatureCard = ({ title, description, img }: Props) => (
-	<div className='600:w-1/2 lg:w-full px-4'>
+	<motion.div
+		variants={pop}
+		initial='initial'
+		whileInView='animate'
+		viewport={{ once: true }}
+		className='600:w-1/2 lg:w-full px-4'>
 		<div className='py-8 bg-[var(--white)] flex justify-center items-center'>
 			<Image
 				className='max-w-full h-auto'
@@ -25,7 +32,7 @@ const FeatureCard = ({ title, description, img }: Props) => (
 				{description}
 			</p>
 		</div>
-	</div>
+	</motion.div>
 )
 
 const Features = () => {
@@ -34,12 +41,17 @@ const Features = () => {
 			id='features'
 			className='relative lg:sticky minw-lg-maxh-md:static lg:top-0 w-full lg:min-h-screen px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] bg-[var(--white)] minw-maxh-lg:py-[10vh] text-[var(--black)] text-center flex flex-wrap justify-between'>
 			{/* Heading */}
-			<div className='w-full'>
+			<motion.div
+				variants={pop}
+				initial='initial'
+				whileInView='animate'
+				viewport={{ once: true }}
+				className='w-full'>
 				<h4 className='w-full mb-4 lg:mb-12 font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase text-[40px] md:text-[76px] lg:text-[56px] '>
 					{' '}
 					Features & <br /> Benefits{' '}
 				</h4>
-			</div>
+			</motion.div>
 			{/* Features */}
 			<div className='w-full h-full mx-auto mb-[var(--padding-y)] md:mb-[var(--padding-y-sm)] lg:mb-[var(--padding-y-lg)] flex flex-col 600:flex-row 600:flex-wrap lg:flex-nowrap lg:gap-4 justify-between'>
 				<FeatureCard
