@@ -100,11 +100,11 @@ const Navbar = () => {
 					initial='initial'
 					whileInView='animate'
 					className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
-					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block'>
+					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
 						<Link href='/#about'> About </Link>
 					</li>
 
-					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block'>
+					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
 						<Link href='/products'> Products </Link>
 					</li>
 				</motion.ul>
@@ -126,7 +126,7 @@ const Navbar = () => {
 					initial='initial'
 					whileInView='animate'
 					className='w-full text-left md:text-right mx-auto pl-[50px] hidden md:flex md:flex-row md:flex-nowrap md:justify-end md:items-baseline'>
-					<li className='text-base md:text-lg mx-auto font-semibold align-top md:inline-block'>
+					<li className='text-base md:text-lg mx-auto font-semibold align-top md:inline-block uppercase'>
 						<Link href='/#about'> Recipes </Link>
 					</li>
 
