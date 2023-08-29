@@ -17,7 +17,7 @@ export default function RootLayout({
 			<head>
 				<link rel='stylesheet' href='https://use.typekit.net/sqg3ceb.css' />
 			</head>
-			<body className='bg-[var(--white)]'>
+			<body className='bg-[var(--white)] leading-[1.6em] font-light font-text-font text-lg'>
 				<Navbar />
 				{children}
 				{/* <Footer /> */}

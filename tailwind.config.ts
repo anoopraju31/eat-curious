@@ -32,6 +32,7 @@ const config: Config = {
 				curve: 'url("/images/curve.svg")',
 				'curve-md': 'url("/images/curve-md.svg")',
 				'curve-xl': 'url("/images/curve-xl.svg")',
+				plus: 'url("/images/plus.svg")',
 			},
 			transitionProperty: {},
 			screens: {
@@ -58,6 +59,12 @@ const config: Config = {
 			},
 			animation: {
 				marquee: 'marquee 40s linear infinite',
+			},
+			boxShadow: {
+				inset: 'inset 0 0 0 2px rgba(255,246,246,0.1)',
+			},
+			backgroundPosition: {
+				select: 'calc(100% - 1em) 50%',
 			},
 		},
 	},
