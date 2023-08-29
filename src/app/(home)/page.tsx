@@ -8,8 +8,8 @@ import {
 	Inspiring,
 	Intrigued,
 	Positivity,
-} from './(home)/sections'
-import { BrandsCarousel, Footer, SpinnerSticker, Ticker } from './components'
+} from './sections'
+import { BrandsCarousel, Footer, SpinnerSticker, Ticker } from '../components'
 
 export default function Home() {
 	return (
