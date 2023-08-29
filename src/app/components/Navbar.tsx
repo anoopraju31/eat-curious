@@ -83,7 +83,7 @@ const Navbar = () => {
 		return () => {
 			window.removeEventListener('scroll', scrollHandler)
 		}
-	}, [scrollHeight])
+	}, [scrollHeight, pathName])
 
 	return (
 		<motion.nav

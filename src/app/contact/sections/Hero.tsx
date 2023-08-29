@@ -1,9 +1,15 @@
+'use client'
 import React from 'react'
+import { motion } from 'framer-motion'
+import { chomp } from '@/utils/animations'
 
 const Hero = () => {
 	return (
 		<header className='w-full pt-[105px] md:pt-[160px] xl:pt-[227px] pb-[5vw] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] text-center border-b-2 border-b-[rgba(255,246,246,0.1)] bg-[var(--black)]'>
-			<svg
+			<motion.svg
+				variants={chomp}
+				whileInView='animate'
+				viewport={{ once: true }}
 				className='w-full max-w-[424px] md:max-w-[808px] mx-auto'
 				width='808'
 				height='207'
@@ -44,7 +50,7 @@ const Hero = () => {
 						<rect width='808' height='207' fill='white'></rect>
 					</clipPath>
 				</defs>
-			</svg>
+			</motion.svg>
 		</header>
 	)
 }
