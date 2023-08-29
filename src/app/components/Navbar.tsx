@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation'
 import { useState, useLayoutEffect } from 'react'
 import { Button, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
+import { view } from '@/utils/animations'
 
 const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
@@ -87,6 +88,9 @@ const Navbar = () => {
 
 	return (
 		<motion.nav
+			variants={view}
+			initial='initial'
+			whileInView='animate'
 			className={`block w-full h-16 sm:h-auto z-[9999] absolute md:fixed ${
 				showNavbar ? 'top-0' : '-top-40'
 			} md:bottom-auto ${

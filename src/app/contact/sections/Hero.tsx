@@ -1,13 +1,14 @@
 'use client'
 import React from 'react'
 import { motion } from 'framer-motion'
-import { chomp } from '@/utils/animations'
+import { pop } from '@/utils/animations'
 
 const Hero = () => {
 	return (
 		<header className='w-full pt-[105px] md:pt-[160px] xl:pt-[227px] pb-[5vw] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] text-center border-b-2 border-b-[rgba(255,246,246,0.1)] bg-[var(--black)]'>
 			<motion.svg
-				variants={chomp}
+				variants={pop}
+				initial='initial'
 				whileInView='animate'
 				viewport={{ once: true }}
 				className='w-full max-w-[424px] md:max-w-[808px] mx-auto'
