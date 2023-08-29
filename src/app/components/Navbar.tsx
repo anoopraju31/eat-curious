@@ -100,7 +100,7 @@ const Navbar = () => {
 					</li>
 
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block'>
-						<Link href='/products'> {pathName} </Link>
+						<Link href='/products'> Products </Link>
 					</li>
 				</ul>
 

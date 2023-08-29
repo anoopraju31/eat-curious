@@ -1,8 +1,14 @@
+'use client'
 import React from 'react'
+import { motion } from 'framer-motion'
+import { chomp } from '@/utils/animations'
 
 const Drooling = () => {
 	return (
-		<svg
+		<motion.svg
+			variants={chomp}
+			whileInView='animate'
+			viewport={{ once: true }}
 			className='w-full h-auto mb-[30px] lg:mb-[60px] relative z-10 scale-y-[100%] origin-bottom'
 			width='1224'
 			height='312'
@@ -53,7 +59,7 @@ const Drooling = () => {
 					<rect width='1224' height='312' fill='white'></rect>
 				</clipPath>
 			</defs>
-		</svg>
+		</motion.svg>
 	)
 }
 

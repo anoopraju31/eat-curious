@@ -40,3 +40,12 @@ export const pop = {
 		opacity: 1,
 	},
 }
+
+export const chomp = {
+	animate: {
+		scaleY: ['100%', '0%', '100%', '0%', '100%'],
+		transition: {
+			scaleY: { duration: 0.6, delay: 1, ease: [0.5, 1.51, 0.55, 0.89] },
+		},
+	},
+}
