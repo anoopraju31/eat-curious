@@ -20,7 +20,14 @@ const Foods = () => {
 						className={`w-full ${
 							id > 4 ? 'hidden lg:block' : id > 3 ? 'hidden md:block' : 'block'
 						}`}>
-						<FoodTile key={id} name={name} img={img} link={link} bg={bg} />
+						<FoodTile
+							key={id}
+							id={id}
+							name={name}
+							img={img}
+							link={link}
+							bg={bg}
+						/>
 					</div>
 				))}
 			</div>

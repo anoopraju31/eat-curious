@@ -38,6 +38,28 @@ export const pop = {
 	animate: {
 		scale: 1,
 		opacity: 1,
+		transition: {
+			scale: {
+				duration: 0.5,
+				type: 'spring',
+				bounce: 0.75,
+				ease: [0.5, 1.51, 0.55, 0.89],
+			},
+			opacity: {
+				duration: 0.5,
+			},
+		},
+	},
+}
+
+export const foodPop = {
+	initial: {
+		scale: 0.9,
+		opacity: 0,
+	},
+	animate: {
+		scale: 1,
+		opacity: 1,
 	},
 }
 
