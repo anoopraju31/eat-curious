@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import { usePathname } from 'next/navigation'
 import { useState, useLayoutEffect } from 'react'
 import { Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
@@ -10,6 +11,7 @@ const Navbar = () => {
 	const [showNavbar, setShowNavbar] = useState<boolean>(true)
 	const [textWhite, setTextWhite] = useState<boolean>(true)
 	const { scrollY } = useScroll()
+	const pathName = usePathname()
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		setShowNavbar(scrollHeight > latest ? true : false)
@@ -46,30 +48,34 @@ const Navbar = () => {
 				? intriguedSection.offsetTop
 				: 0
 
-			if (scrollHeight < aboutOffsetTop) setTextWhite(true)
-			else if (
-				scrollHeight >= aboutOffsetTop &&
-				scrollHeight <
-					featuresOffsetTop - 2 * (flavoursomeSection?.clientHeight || 0)
-			)
-				setTextWhite(false)
-			else if (
-				scrollHeight >=
-					featuresOffsetTop - (flavoursomeSection?.clientHeight || 0) &&
-				scrollHeight < featuresOffsetTop
-			)
+			if (pathName == '/') {
+				if (scrollHeight < aboutOffsetTop) setTextWhite(true)
+				else if (
+					scrollHeight >= aboutOffsetTop &&
+					scrollHeight <
+						featuresOffsetTop - 2 * (flavoursomeSection?.clientHeight || 0)
+				)
+					setTextWhite(false)
+				else if (
+					scrollHeight >=
+						featuresOffsetTop - (flavoursomeSection?.clientHeight || 0) &&
+					scrollHeight < featuresOffsetTop
+				)
+					setTextWhite(true)
+				else if (
+					scrollHeight >= featuresOffsetTop &&
+					scrollHeight < foodsOffsetTop
+				)
+					setTextWhite(false)
+				else if (
+					scrollHeight >= foodsOffsetTop &&
+					scrollHeight < intriguedOffsetTop - window.innerHeight / 4
+				)
+					setTextWhite(true)
+				else setTextWhite(false)
+			} else if (pathName === '/contact' || pathName === '/privacy-policy') {
 				setTextWhite(true)
-			else if (
-				scrollHeight >= featuresOffsetTop &&
-				scrollHeight < foodsOffsetTop
-			)
-				setTextWhite(false)
-			else if (
-				scrollHeight >= foodsOffsetTop &&
-				scrollHeight < intriguedOffsetTop - window.innerHeight / 4
-			)
-				setTextWhite(true)
-			else setTextWhite(false)
+			}
 		}
 
 		window.addEventListener('scroll', scrollHandler)
@@ -94,7 +100,7 @@ const Navbar = () => {
 					</li>
 
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block'>
-						<Link href='/products'> Products </Link>
+						<Link href='/products'> {pathName} </Link>
 					</li>
 				</ul>
 

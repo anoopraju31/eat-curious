@@ -3,12 +3,19 @@
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { FAQ } from '@/utils/faq'
-import { view } from '@/utils/animations'
+import { pop, view } from '@/utils/animations'
 
 const Accordion = ({ id, question, answer }: FAQ) => {
 	const [show, setShow] = useState<boolean>(false)
 	return (
-		<div
+		<motion.div
+			variants={pop}
+			initial='initial'
+			whileInView='animate'
+			viewport={{ once: true }}
+			transition={{
+				stiffness: 10,
+			}}
 			onClick={() => setShow((prev) => !prev)}
 			className={`w-full px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] text-[var(--white)] border-b ${
 				id === 1 ? 'border-t' : ''
@@ -29,13 +36,13 @@ const Accordion = ({ id, question, answer }: FAQ) => {
 						initial='initial'
 						animate='animate'
 						exit='initial'
-						transition={{ duration: 0.5 }}
+						transition={{ duration: 0.3 }}
 						className='relative pb-[1em] lg:pb-[3em] transition-all'>
 						<p className='max-w-[909px] mb-[1.25rem] '>{answer}</p>
 					</motion.div>
 				)}
 			</AnimatePresence>
-		</div>
+		</motion.div>
 	)
 }
 
