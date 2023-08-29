@@ -30,7 +30,7 @@ const Enquiry = () => {
 
 				<p className='mb-5 text-base md:text-lg'>NN7 2BA</p>
 
-				<div className='hidden lg:block w-[52px] h-[76px] bg-squiggle3 bg-no-repeat bg-center bg-contain pointer-events-none absolute top-[130%] left-[30%] -scale-x-100  '></div>
+				<div className='hidden lg:block w-[52px] h-[76px] bg-squiggle3 z-20 bg-no-repeat bg-center bg-contain pointer-events-none absolute top-[130%] left-[30%] -scale-x-100  '></div>
 			</div>
 
 			{/* Contact Form */}

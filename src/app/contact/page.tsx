@@ -11,7 +11,7 @@ export default function ContactPage() {
 				<FAQ />
 			</main>
 
-			{/* <Footer /> */}
+			<Footer />
 		</div>
 	)
 }

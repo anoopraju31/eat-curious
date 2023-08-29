@@ -1,5 +1,5 @@
-interface FAQ {
-	id: number
+export interface FAQ {
+	id?: number
 	question: string
 	answer: string
 }
