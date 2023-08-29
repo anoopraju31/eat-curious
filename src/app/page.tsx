@@ -17,7 +17,7 @@ export default function Home() {
 			<Hero />
 			<main className='w-full mx-auto'>
 				<Ticker />
-				<SpinnerSticker />
+				{/* <SpinnerSticker /> */}
 				<BrandsCarousel />
 				{/* Sections */}
 				<Curious />
