@@ -1,3 +1,9 @@
+import { Hero } from './sections'
+
 export default function ContactPage() {
-	return <div> Contact Page </div>
+	return (
+		<div>
+			<Hero />
+		</div>
+	)
 }
