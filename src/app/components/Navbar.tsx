@@ -87,10 +87,7 @@ const Navbar = () => {
 	}, [scrollHeight, pathName])
 
 	return (
-		<motion.nav
-			variants={view}
-			initial='initial'
-			whileInView='animate'
+		<nav
 			className={`block w-full h-16 sm:h-auto z-[9999] absolute md:fixed ${
 				showNavbar ? 'top-0' : '-top-40'
 			} md:bottom-auto ${
@@ -98,7 +95,11 @@ const Navbar = () => {
 			} font-heading-narrow transition-all duration-500`}>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
-				<ul className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
+				<motion.ul
+					variants={view}
+					initial='initial'
+					whileInView='animate'
+					className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
 					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block'>
 						<Link href='/#about'> About </Link>
 					</li>
@@ -106,17 +107,25 @@ const Navbar = () => {
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block'>
 						<Link href='/products'> Products </Link>
 					</li>
-				</ul>
+				</motion.ul>
 
 				{/* Logo */}
-				<div className='w-[113px] md:w-48 lg:w-[184px] block mt-4 mx-auto flex-shrink-0'>
+				<motion.div
+					variants={view}
+					initial='initial'
+					whileInView='animate'
+					className='w-[113px] md:w-48 lg:w-[184px] block mt-4 mx-auto flex-shrink-0'>
 					<Link href='/'>
 						<Logo fillWhite={textWhite} />
 					</Link>
-				</div>
+				</motion.div>
 
 				{/* Navigation desktop - right */}
-				<ul className='w-full text-left md:text-right mx-auto pl-[50px] hidden md:flex md:flex-row md:flex-nowrap md:justify-end md:items-baseline'>
+				<motion.ul
+					variants={view}
+					initial='initial'
+					whileInView='animate'
+					className='w-full text-left md:text-right mx-auto pl-[50px] hidden md:flex md:flex-row md:flex-nowrap md:justify-end md:items-baseline'>
 					<li className='text-base md:text-lg mx-auto font-semibold align-top md:inline-block'>
 						<Link href='/#about'> Recipes </Link>
 					</li>
@@ -128,7 +137,7 @@ const Navbar = () => {
 					<li>
 						<Button title='Contact Us' isSmall link='/contact' />
 					</li>
-				</ul>
+				</motion.ul>
 
 				{/* Menu */}
 				<button className='bg-[var(--pink)] rounded px-[10px] md:hidden fixed top-4 right-4 z-50 cursor-pointer w-10 h-10'>
@@ -139,7 +148,7 @@ const Navbar = () => {
 					</div>
 				</button>
 			</div>
-		</motion.nav>
+		</nav>
 	)
 }
 
