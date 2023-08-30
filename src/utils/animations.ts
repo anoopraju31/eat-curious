@@ -71,3 +71,120 @@ export const chomp = {
 		},
 	},
 }
+
+export const one = {
+	initial: {
+		x: '-120vw',
+		y: '-120vh',
+	},
+	hover: {
+		x: '0vw',
+		y: '0vh',
+		scaleX: -1,
+		rotate: -20,
+	},
+}
+
+export const two = {
+	initial: {
+		y: '-120vh',
+	},
+	hover: {
+		y: '0vh',
+		scaleY: -1,
+		rotate: -97,
+	},
+}
+
+export const three = {
+	initial: {
+		y: '-120vh',
+	},
+	hover: {
+		y: '0vh',
+		scaleY: -1,
+		rotate: -28,
+	},
+}
+
+export const four = {
+	initial: {
+		y: '-120vh',
+		x: '120vw',
+	},
+	hover: {
+		y: '0vh',
+		x: '0vw',
+		rotate: -11,
+	},
+}
+
+export const five = {
+	initial: {
+		x: '-120vh',
+	},
+	hover: {
+		x: '0vh',
+		rotate: 15,
+	},
+}
+
+export const six = {
+	initial: {
+		x: '120vh',
+	},
+	hover: {
+		x: '0vh',
+		rotate: 10,
+	},
+}
+
+export const seven = {
+	initial: {
+		x: '-120vw',
+		y: '120vh',
+	},
+	hover: {
+		x: '0vw',
+		y: '0vh',
+		rotate: -13,
+	},
+}
+
+export const eight = {
+	initial: {
+		y: '120vh',
+	},
+	hover: {
+		y: '0vh',
+		scaleX: -1,
+		rotate: -41,
+	},
+}
+
+export const nine = {
+	initial: {
+		y: '120vh',
+	},
+	hover: {
+		y: '0vh',
+		rotate: -50,
+	},
+}
+
+export const ten = {
+	initial: {
+		y: '120vh',
+		x: '120vw',
+	},
+	hover: {
+		y: '0vh',
+		x: '0vw',
+		rotate: -99,
+	},
+}
+
+export const transition = {
+	duration: 0.4,
+	ease: [0.5, 1.51, 0.55, 0.89],
+}
