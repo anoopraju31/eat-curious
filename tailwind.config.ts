@@ -33,6 +33,7 @@ const config: Config = {
 				'curve-md': 'url("/images/curve-md.svg")',
 				'curve-xl': 'url("/images/curve-xl.svg")',
 				plus: 'url("/images/plus.svg")',
+				pieces: 'url("/images/products/pieces-7-e1689971037607-473x214.png")',
 			},
 			transitionProperty: {},
 			screens: {
