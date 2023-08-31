@@ -9,6 +9,7 @@ import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { pop, view } from '@/utils/animations'
 import { context } from './Context'
 import { useRouter } from 'next/navigation'
+import { useCurrentWidth } from '@/hooks'
 
 const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
@@ -18,6 +19,7 @@ const Navbar = () => {
 	const { scrollY } = useScroll()
 	const pathName = usePathname()
 	const router = useRouter()
+	const currentWidth = useCurrentWidth()
 
 	const values = useContext(context)
 
@@ -92,6 +94,10 @@ const Navbar = () => {
 			window.removeEventListener('scroll', scrollHandler)
 		}
 	}, [scrollHeight, pathName])
+
+	useLayoutEffect(() => {
+		if (currentWidth >= 768) setNavOpen(false)
+	}, [currentWidth])
 
 	return (
 		<nav
