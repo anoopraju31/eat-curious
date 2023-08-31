@@ -34,6 +34,9 @@ const config: Config = {
 				'curve-xl': 'url("/images/curve-xl.svg")',
 				plus: 'url("/images/plus.svg")',
 				pieces: 'url("/images/products/pieces-7-e1689971037607-473x214.png")',
+				mince: 'url("/images/products/mince-9-e1689971464732-471x473.png")',
+				negg: 'url("/images/products/negg-e1690228015512-473x433.png")',
+				fillet: 'url("/images/products/fillets-3-473x469.png")',
 			},
 			transitionProperty: {},
 			screens: {
