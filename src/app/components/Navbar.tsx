@@ -6,8 +6,9 @@ import { useState, useLayoutEffect, useContext } from 'react'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { Button, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import { view } from '@/utils/animations'
+import { pop, view } from '@/utils/animations'
 import { context } from './Context'
+import { useRouter } from 'next/navigation'
 
 const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
@@ -16,6 +17,7 @@ const Navbar = () => {
 	const [navOpen, setNavOpen] = useState<boolean>(false)
 	const { scrollY } = useScroll()
 	const pathName = usePathname()
+	const router = useRouter()
 
 	const { isTextWhite } = useContext(context)
 
@@ -93,13 +95,13 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className={`block w-full h-full md:h-16 sm:h-auto z-[9999] ${
+			className={`block w-full h-auto md:h-16 sm:h-auto z-[9999] ${
 				navOpen ? 'fixed top-0 left-0 bottom-0' : 'absolute'
 			} md:fixed ${showNavbar ? 'top-0' : '-top-40'} md:bottom-auto ${
 				textWhite && isTextWhite ? 'text-[var(--white)]' : 'text-[var(--black)]'
 			} ${
 				navOpen ? 'bg-[var(--pink)]' : 'bg-transparent'
-			} font-heading-narrow transition-all duration-500`}>
+			} font-heading-narrow`}>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
 				<motion.ul
@@ -108,7 +110,10 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
 					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
-						<Link href='/#about'> About </Link>
+						<Link href='/#about' className='text-white'>
+							{' '}
+							About {isTextWhite ? 1 : 0}{' '}
+						</Link>
 					</li>
 
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
@@ -148,14 +153,54 @@ const Navbar = () => {
 
 				{/* Mobile Navigation Menu */}
 				{navOpen && (
-					<ul className='flex md:hidden flex-1 w-full h-full mx-auto py-[80px] md:py-[100px] xl:py-[120px] flex-col justify-center absolute top-0 left-0 right-0 bottom-0 overflow-auto pointer-events-none text-center '>
-						<li className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] tracking-[0.01em] uppercase text-[var(--black)]'>
-							<Link href='/products'> Products </Link>
-						</li>
+					<ul className='flex md:hidden w-full h-full z-30 mx-auto py-[80px] md:py-[100px] xl:py-[120px] flex-col justify-center absolute top-0 left-0 right-0 bottom-0 overflow-auto text-center '>
+						<motion.li
+							initial={{
+								opacity: 0,
+								scale: 0.9,
+								y: 10,
+							}}
+							whileInView={{
+								opacity: 1,
+								scale: 1,
+								y: 0,
+							}}
+							transition={{ delay: 0.8 }}
+							className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
+							<Link
+								onClick={() => {
+									setNavOpen(false)
+									router.push('/products')
+								}}
+								href='/products'>
+								{' '}
+								Products{' '}
+							</Link>
+						</motion.li>
 
-						<li className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] tracking-[0.01em] uppercase text-[var(--black)]'>
-							<Link href='/contact'> Contact </Link>
-						</li>
+						<motion.li
+							initial={{
+								opacity: 0,
+								scale: 0.9,
+								y: 10,
+							}}
+							whileInView={{
+								opacity: 1,
+								scale: 1,
+								y: 0,
+							}}
+							transition={{ delay: 0.9 }}
+							className='w-full text-[13vw] relative leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
+							<Link
+								onClick={() => {
+									setNavOpen(false)
+									router.push('/contact')
+								}}
+								href='/contact'>
+								{' '}
+								Contact{' '}
+							</Link>
+						</motion.li>
 					</ul>
 				)}
 
@@ -169,15 +214,15 @@ const Navbar = () => {
 						<span
 							className={`block w-full h-[3px] mb-1 ${
 								navOpen ? 'bg-transparent' : 'bg-[var(--black)]'
-							} transition-colors duration-500 ease-in-out`}></span>
+							} transition-colors duration-1000 ease-in-out`}></span>
 						<span
 							className={`block w-full h-[3px] mb-1 ${
 								navOpen ? 'bg-[var(--white)]' : 'bg-[var(--black)]'
-							} transition-colors duration-500 ease-in-out`}></span>
+							} transition-colors duration-1000 ease-in-out`}></span>
 						<span
 							className={`block w-full h-[3px] mb-1 ${
 								navOpen ? 'bg-transparent' : 'bg-[var(--black)]'
-							} transition-colors duration-500 ease-in-out`}></span>
+							} transition-colors duration-1000 ease-in-out`}></span>
 					</div>
 				</button>
 
