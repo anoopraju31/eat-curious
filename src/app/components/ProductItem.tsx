@@ -10,13 +10,14 @@ const ProductItem = ({ id, name, link, img, imgAnimation }: Product) => {
 	const controls = useAnimation()
 	function handleMouseEnterControls() {
 		controls.start('hover')
-		setBackground(backgrounds[id])
+		setBackground(backgrounds[id - 1])
 	}
 
 	function handleMouseLeaveControls() {
 		controls.start('initial')
 		setBackground('transparent')
 	}
+
 	return (
 		<li
 			onMouseEnter={handleMouseEnterControls}
