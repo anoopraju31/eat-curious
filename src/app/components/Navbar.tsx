@@ -2,10 +2,11 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useLayoutEffect } from 'react'
+import { useState, useLayoutEffect, useContext } from 'react'
 import { Button, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { view } from '@/utils/animations'
+import { context } from './Context'
 
 const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
@@ -13,6 +14,8 @@ const Navbar = () => {
 	const [textWhite, setTextWhite] = useState<boolean>(true)
 	const { scrollY } = useScroll()
 	const pathName = usePathname()
+
+	const { isTextWhite } = useContext(context)
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		setShowNavbar(scrollHeight > latest ? true : false)
@@ -91,7 +94,7 @@ const Navbar = () => {
 			className={`block w-full h-16 sm:h-auto z-[9999] absolute md:fixed ${
 				showNavbar ? 'top-0' : '-top-40'
 			} md:bottom-auto ${
-				textWhite ? 'text-[var(--white)]' : 'text-[var(--black)]'
+				textWhite && isTextWhite ? 'text-[var(--white)]' : 'text-[var(--black)]'
 			} font-heading-narrow transition-all duration-500`}>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
@@ -116,7 +119,7 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-[113px] md:w-48 lg:w-[184px] block mt-4 mx-auto flex-shrink-0'>
 					<Link href='/'>
-						<Logo fillWhite={textWhite} />
+						<Logo fillWhite={textWhite && isTextWhite} />
 					</Link>
 				</motion.div>
 

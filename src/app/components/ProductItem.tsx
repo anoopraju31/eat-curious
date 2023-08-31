@@ -1,21 +1,27 @@
 'use client'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import { transition } from '@/utils/animations'
 import { Product, backgrounds, layouts } from '@/utils/products'
+import { context } from './Context'
 
 const ProductItem = ({ id, name, link, img, imgAnimation }: Product) => {
 	const [background, setBackground] = useState<string>('transparent')
+	const values = useContext(context)
 	const controls = useAnimation()
 	function handleMouseEnterControls() {
 		controls.start('hover')
 		setBackground(backgrounds[id - 1])
+		values?.setProductId(id)
+		values?.setIsTextWhite(false)
 	}
 
 	function handleMouseLeaveControls() {
 		controls.start('initial')
 		setBackground('transparent')
+		values?.setProductId(-1)
+		values?.setIsTextWhite(true)
 	}
 
 	return (
