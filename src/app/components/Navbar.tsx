@@ -3,6 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useLayoutEffect, useContext } from 'react'
+import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { Button, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { view } from '@/utils/animations'
@@ -12,6 +13,7 @@ const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
 	const [showNavbar, setShowNavbar] = useState<boolean>(true)
 	const [textWhite, setTextWhite] = useState<boolean>(true)
+	const [navOpen, setNavOpen] = useState<boolean>(false)
 	const { scrollY } = useScroll()
 	const pathName = usePathname()
 
@@ -91,10 +93,12 @@ const Navbar = () => {
 
 	return (
 		<nav
-			className={`block w-full h-16 sm:h-auto z-[9999] absolute md:fixed ${
-				showNavbar ? 'top-0' : '-top-40'
-			} md:bottom-auto ${
+			className={`block w-full h-full md:h-16 sm:h-auto z-[9999] ${
+				navOpen ? 'fixed top-0 left-0 bottom-0' : 'absolute'
+			} md:fixed ${showNavbar ? 'top-0' : '-top-40'} md:bottom-auto ${
 				textWhite && isTextWhite ? 'text-[var(--white)]' : 'text-[var(--black)]'
+			} ${
+				navOpen ? 'bg-[var(--pink)]' : 'bg-transparent'
 			} font-heading-narrow transition-all duration-500`}>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
@@ -119,7 +123,7 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-[113px] md:w-48 lg:w-[184px] block mt-4 mx-auto flex-shrink-0'>
 					<Link href='/'>
-						<Logo fillWhite={textWhite && isTextWhite} />
+						<Logo fillWhite={textWhite && isTextWhite && !navOpen} />
 					</Link>
 				</motion.div>
 
@@ -142,14 +146,65 @@ const Navbar = () => {
 					</li>
 				</motion.ul>
 
+				{/* Mobile Navigation Menu */}
+				{navOpen && (
+					<ul className='flex md:hidden flex-1 w-full h-full mx-auto py-[80px] md:py-[100px] xl:py-[120px] flex-col justify-center absolute top-0 left-0 right-0 bottom-0 overflow-auto pointer-events-none text-center '>
+						<li className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] tracking-[0.01em] uppercase text-[var(--black)]'>
+							<Link href='/products'> Products </Link>
+						</li>
+
+						<li className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] tracking-[0.01em] uppercase text-[var(--black)]'>
+							<Link href='/contact'> Contact </Link>
+						</li>
+					</ul>
+				)}
+
 				{/* Menu */}
-				<button className='bg-[var(--pink)] rounded px-[10px] md:hidden fixed top-4 right-4 z-50 cursor-pointer w-10 h-10'>
+				<button
+					onClick={() => setNavOpen((prev) => !prev)}
+					className={`rounded px-[10px] md:hidden fixed top-4 right-4 z-50 cursor-pointer w-10 h-10 ${
+						navOpen ? 'bg-[var(--black)]' : 'bg-[var(--pink)]'
+					} transition-colors duration-500 ease-in-out`}>
 					<div className='w-full h-auto block align-middle'>
-						<span className='block w-full h-[3px] mb-1 bg-[var(--black)]'></span>
-						<span className='block w-full h-[3px] mb-1 bg-[var(--black)]'></span>
-						<span className='block w-full h-[3px] mb-1 bg-[var(--black)]'></span>
+						<span
+							className={`block w-full h-[3px] mb-1 ${
+								navOpen ? 'bg-transparent' : 'bg-[var(--black)]'
+							} transition-colors duration-500 ease-in-out`}></span>
+						<span
+							className={`block w-full h-[3px] mb-1 ${
+								navOpen ? 'bg-[var(--white)]' : 'bg-[var(--black)]'
+							} transition-colors duration-500 ease-in-out`}></span>
+						<span
+							className={`block w-full h-[3px] mb-1 ${
+								navOpen ? 'bg-transparent' : 'bg-[var(--black)]'
+							} transition-colors duration-500 ease-in-out`}></span>
 					</div>
 				</button>
+
+				{/* Social Media Links */}
+				{navOpen && (
+					<ul className='w-full absolute bottom-5 left-0 px-[var(--padding-x)] md:hidden text-[var(--black)] flex justify-center gap-5'>
+						<li>
+							<a href='https://www.instagram.com/eat_curious/' target='_blank'>
+								<BsInstagram />
+							</a>
+						</li>
+
+						<li>
+							<a href='https://www.facebook.com/eatcurious/' target='_blank'>
+								<BsFacebook />
+							</a>
+						</li>
+
+						<li>
+							<a
+								href='https://www.linkedin.com/company/eat-curious/?originalSubdomain=uk'
+								target='_blank'>
+								<BsLinkedin />
+							</a>
+						</li>
+					</ul>
+				)}
 			</div>
 		</nav>
 	)
