@@ -19,7 +19,7 @@ const Navbar = () => {
 	const pathName = usePathname()
 	const router = useRouter()
 
-	const { isTextWhite } = useContext(context)
+	const values = useContext(context)
 
 	useMotionValueEvent(scrollY, 'change', (latest) => {
 		setShowNavbar(scrollHeight > latest ? true : false)
@@ -98,7 +98,9 @@ const Navbar = () => {
 			className={`block w-full h-auto md:h-16 sm:h-auto z-[9999] ${
 				navOpen ? 'fixed top-0 left-0 bottom-0' : 'absolute'
 			} md:fixed ${showNavbar ? 'top-0' : '-top-40'} md:bottom-auto ${
-				textWhite && isTextWhite ? 'text-[var(--white)]' : 'text-[var(--black)]'
+				textWhite && values?.isTextWhite
+					? 'text-[var(--white)]'
+					: 'text-[var(--black)]'
 			} ${
 				navOpen ? 'bg-[var(--pink)]' : 'bg-transparent'
 			} font-heading-narrow`}>
@@ -110,10 +112,7 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
 					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
-						<Link href='/#about' className='text-white'>
-							{' '}
-							About {isTextWhite ? 1 : 0}{' '}
-						</Link>
+						<Link href='/#about'> About</Link>
 					</li>
 
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
@@ -128,7 +127,11 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-[113px] md:w-48 lg:w-[184px] block mt-4 mx-auto flex-shrink-0'>
 					<Link href='/'>
-						<Logo fillWhite={textWhite && isTextWhite && !navOpen} />
+						<Logo
+							fillWhite={
+								textWhite && (values?.isTextWhite as boolean) && !navOpen
+							}
+						/>
 					</Link>
 				</motion.div>
 
