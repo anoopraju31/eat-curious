@@ -12,20 +12,42 @@ type Animation = {
 	}
 }
 
-type ImageLayoutAnimation = {
-	layout: string
-	animation: Animation
-}
-
 export interface Product {
-	id?: number
+	id: number
 	name: string
 	link: string
 	img: string
-	imgAnimation: ImageLayoutAnimation[]
+	imgAnimation: Animation[]
 }
 
-export const products = [
+export const backgrounds: string[] = [
+	'#1ABE71',
+	'#FFB500',
+	'#1ABE71',
+	'#1ABE71',
+	'#1ABE71',
+	'#F95B77',
+	'#F95B77',
+	'#FFB500',
+	'#1ABE71',
+	'#FFB500',
+	'#FFB500',
+]
+
+export const layouts: string[] = [
+	'1/1/2/2',
+	'1/2/2/3',
+	'1/3/2/4',
+	'1/4/2/5',
+	'2/1/3/2',
+	'2/4/3/5',
+	'3/1/4/2',
+	'3/2/4/3',
+	'3/3/4/4',
+	'3/4/4/5',
+]
+
+export const products: Product[] = [
 	{
 		id: 1,
 		name: 'pieces',
@@ -33,136 +55,45 @@ export const products = [
 		img: 'url("/images/products/pieces-7-e1689971037607-473x214.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						scaleX: -1,
-						rotate: -20,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', scaleX: -1, rotate: -20 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -97,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -97 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -28,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -28 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -11,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -11 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 15,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 15 },
+			},
+
+			{
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 10 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 10,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: -13 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: -13,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: -41 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: -41,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: -50 },
 			},
 			{
-				layout: 'left-[15%] row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: -50,
-					},
-				},
-			},
-			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -99,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -99 },
 			},
 		],
 	},
@@ -173,134 +104,44 @@ export const products = [
 		img: 'url("/images/products/mince-9-e1689971464732-471x473.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 180 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 		],
 	},
@@ -311,134 +152,44 @@ export const products = [
 		img: 'url("/images/products/negg-e1690228015512-473x433.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 180 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 		],
 	},
@@ -449,134 +200,44 @@ export const products = [
 		img: 'url("/images/products/fillets-3-473x469.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 180 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 		],
 	},
@@ -587,134 +248,44 @@ export const products = [
 		img: 'url("/images/products/tenders-3-e1669377993231-473x470.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 180 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 		],
 	},
@@ -725,136 +296,44 @@ export const products = [
 		img: 'url("/images/products/bangers-7-e1668786408139-473x324.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						scaleX: -1,
-						rotate: -20,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', scaleX: -1, rotate: -20 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -97,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -97 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -28,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -28 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -11,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -11 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 15,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 15 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 10,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 10 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: -13,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: -13 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: -41,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: -41 },
 			},
 			{
-				layout: 'left-[15%] row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: -50,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: -50 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -99,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -99 },
 			},
 		],
 	},
@@ -865,134 +344,44 @@ export const products = [
 		img: 'url("/images/products/patty-3-e1669121069255-473x473.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 180 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 		],
 	},
@@ -1003,136 +392,44 @@ export const products = [
 		img: 'url("/images/products/block-473x238.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						scaleX: -1,
-						rotate: -20,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', scaleX: -1, rotate: -20 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -97,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -97 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -28,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -28 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -11,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -11 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 15,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 15 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 10,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 10 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: -13,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: -13 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: -41,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: -41 },
 			},
 			{
-				layout: 'left-[15%] row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: -50,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: -50 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -99,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -99 },
 			},
 		],
 	},
@@ -1143,136 +440,44 @@ export const products = [
 		img: 'url("/images/products/roast-2-473x322.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						scaleX: -1,
-						rotate: -20,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', scaleX: -1, rotate: -20 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -97,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -97 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleY: -1,
-						rotate: -28,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleY: -1, rotate: -28 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -11,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -11 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 15,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 15 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 10,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 10 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: -13,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: -13 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: -41,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: -41 },
 			},
 			{
-				layout: 'left-[15%] row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: -50,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: -50 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: -99,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: -99 },
 			},
 		],
 	},
@@ -1283,271 +488,151 @@ export const products = [
 		img: 'url("/images/products/en-croute-7-e1689969278751-422x473.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '-120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 180 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh' },
+				hover: { y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '-120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { x: '-120vh' },
+				hover: { x: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '120vh' },
+				hover: { x: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
-				},
+				initial: { x: '-120vw', y: '120vh' },
+				hover: { x: '0vw', y: '0vh', rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', rotate: 180 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh' },
+				hover: { y: '0vh', scaleX: -1, rotate: 0 },
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
-				},
+				initial: { y: '120vh', x: '120vw' },
+				hover: { y: '0vh', x: '0vw', rotate: 0 },
 			},
 		],
 	},
 	{
-		id: 10,
+		id: 11,
 		name: 'Burger',
 		link: '/products/burger',
 		img: 'url("/images/products/burger-4-473x461.png")',
 		imgAnimation: [
 			{
-				layout: 'row-start-1 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '-120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
+				initial: {
+					x: '-120vw',
+					y: '-120vh',
+				},
+				hover: {
+					x: '0vw',
+					y: '0vh',
+					rotate: 0,
 				},
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 180,
-					},
+				initial: {
+					y: '-120vh',
+				},
+				hover: {
+					y: '0vh',
+					scaleX: -1,
+					rotate: 180,
 				},
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '-120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 0,
-					},
+				initial: {
+					y: '-120vh',
+				},
+				hover: {
+					y: '0vh',
+					rotate: 0,
 				},
 			},
 			{
-				layout: 'row-start-1 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						y: '-120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
+				initial: {
+					y: '-120vh',
+					x: '120vw',
+				},
+				hover: {
+					y: '0vh',
+					x: '0vw',
+					rotate: 0,
 				},
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 180,
-					},
+				initial: {
+					x: '-120vh',
+				},
+				hover: {
+					x: '0vh',
+					rotate: 180,
 				},
 			},
 			{
-				layout: 'row-start-2 row-end-2 col-start-4 col-end-5',
-				animation: {
-					initial: {
-						x: '120vh',
-					},
-					hover: {
-						x: '0vh',
-						rotate: 0,
-					},
+				initial: {
+					x: '120vh',
+				},
+				hover: {
+					x: '0vh',
+					rotate: 0,
 				},
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-1 col-end-2',
-				animation: {
-					initial: {
-						x: '-120vw',
-						y: '120vh',
-					},
-					hover: {
-						x: '0vw',
-						y: '0vh',
-						rotate: 0,
-					},
+				initial: {
+					x: '-120vw',
+					y: '120vh',
+				},
+				hover: {
+					x: '0vw',
+					y: '0vh',
+					rotate: 0,
 				},
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-2 col-end-3',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						rotate: 180,
-					},
+				initial: {
+					y: '120vh',
+				},
+				hover: {
+					y: '0vh',
+					rotate: 180,
 				},
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-3 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-					},
-					hover: {
-						y: '0vh',
-						scaleX: -1,
-						rotate: 0,
-					},
+				initial: {
+					y: '120vh',
+				},
+				hover: {
+					y: '0vh',
+					scaleX: -1,
+					rotate: 0,
 				},
 			},
 			{
-				layout: 'row-start-3 row-end-4 col-start-4 col-end-4',
-				animation: {
-					initial: {
-						y: '120vh',
-						x: '120vw',
-					},
-					hover: {
-						y: '0vh',
-						x: '0vw',
-						rotate: 0,
-					},
+				initial: {
+					y: '120vh',
+					x: '120vw',
+				},
+				hover: {
+					y: '0vh',
+					x: '0vw',
+					rotate: 0,
 				},
 			},
 		],
