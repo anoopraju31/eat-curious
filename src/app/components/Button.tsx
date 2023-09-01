@@ -7,9 +7,10 @@ type Props = {
 	title: string
 	link: string
 	isSmall?: boolean
+	background?: string
 }
 
-const Button = ({ title, link, isSmall }: Props) => {
+const Button = ({ title, link, isSmall, background }: Props) => {
 	const controls = useAnimation()
 	const handleMouseEnterControls = () => {
 		controls.start('animate')
@@ -24,9 +25,12 @@ const Button = ({ title, link, isSmall }: Props) => {
 			onMouseEnter={handleMouseEnterControls}
 			onMouseLeave={handleMouseLeaveControls}
 			href={link}
+			style={{
+				backgroundColor: background ? background : '#ff73b5',
+			}}
 			className={`relative group font-heading-narrow font-extrabold text-center ${
 				isSmall ? 'text-base md:text-lg' : 'text-xl md:text-2xl'
-			} bg-[var(--pink)] text-[var(--black)] px-[0.7em] pt-[0.2em] pb-[0.2em] tracking-[0.01em] uppercase rounded`}>
+			} text-[var(--black)] px-[0.7em] pt-[0.2em] pb-[0.2em] tracking-[0.01em] uppercase rounded`}>
 			<span className='opacity-0'> {title} </span>
 			<span className='absolute top-0 left-0 bottom-0 w-full overflow-hidden pointer-events-none whitespace-nowrap'>
 				<motion.span

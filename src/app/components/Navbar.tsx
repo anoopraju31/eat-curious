@@ -160,7 +160,12 @@ const Navbar = () => {
 					</li> */}
 
 					<li>
-						<Button title='Contact Us' isSmall link='/contact' />
+						<Button
+							title='Contact Us'
+							isSmall
+							link='/contact'
+							background={values?.backgroundColor}
+						/>
 					</li>
 				</motion.ul>
 
