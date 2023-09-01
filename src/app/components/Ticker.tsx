@@ -21,7 +21,7 @@ const Ticker = ({ ticks, background, position, isLargeSize }: TickerProps) => {
 	return (
 		<div
 			style={{ backgroundColor: background }}
-			className={`${position} w-screen z-[9999] bg-[var(--pink)] overflow-hidden text-[var(--black)] ${
+			className={`${position} w-full z-[999] bg-[var(--pink)] overflow-hidden text-[var(--black)] ${
 				isLargeSize
 					? 'font-heading-narrow text-[32px] md:text-[56px] pt-[0.3em] pb-[0.7em]'
 					: 'font-headingFont text-sm md:text-lg pt-[0.7em] pb-[1.1em]'
