@@ -50,7 +50,14 @@ export const foods: Food[] = [
 				img: '/images/products/pieces/pieces-10-1200x1200.jpg',
 			},
 		],
-		ticker: ['Bake Me', 'Shallow-Fry Me'],
+		ticker: [
+			'Bake Me',
+			'Shallow-Fry Me',
+			'Bake Me',
+			'Shallow-Fry Me',
+			'Bake Me',
+			'Shallow-Fry Me',
+		],
 		accordion: [
 			{
 				icon: '/images/ingredients.svg',

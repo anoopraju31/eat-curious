@@ -10,13 +10,18 @@ import {
 	Positivity,
 } from './sections'
 import { BrandsCarousel, Footer, SpinnerSticker, Ticker } from '../components'
+import { tickers } from '@/utils/ticker'
 
 export default function Home() {
 	return (
 		<div className='bg-[var(--white)] font-text-font relative'>
 			<Hero />
 			<main className='w-full mx-auto'>
-				<Ticker />
+				<Ticker
+					ticks={tickers}
+					background='#ff73b5'
+					position='fixed bottom-0'
+				/>
 				{/* <SpinnerSticker /> */}
 				<BrandsCarousel />
 				{/* Sections */}
