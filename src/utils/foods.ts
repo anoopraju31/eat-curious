@@ -1,4 +1,4 @@
-interface FoodTab {
+export interface FoodTab {
 	title: string
 	description: string
 	enquire: string
