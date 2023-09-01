@@ -2,7 +2,7 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { useState, useLayoutEffect, useContext } from 'react'
+import { useState, useLayoutEffect, useContext, useEffect } from 'react'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { Button, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
@@ -90,6 +90,8 @@ const Navbar = () => {
 				pathName === '/products'
 			) {
 				setTextWhite(true)
+			} else if (isValidProductsRoute(pathName)) {
+				setTextWhite(true)
 			}
 		}
 
@@ -103,6 +105,10 @@ const Navbar = () => {
 	useLayoutEffect(() => {
 		if (currentWidth >= 768) setNavOpen(false)
 	}, [currentWidth])
+
+	useEffect(() => {
+		if (pathName !== '/products') values?.setIsTextWhite(true)
+	}, [pathName])
 
 	return (
 		<nav
