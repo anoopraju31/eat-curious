@@ -1,11 +1,15 @@
 'use client'
-
 import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
-import { FAQ } from '@/utils/faq'
 import { pop, view } from '@/utils/animations'
 
-const Accordion = ({ id, question, answer }: FAQ) => {
+export interface Props {
+	id?: number
+	question: string
+	answer: string
+	icon?: string
+}
+const Accordion = ({ id, question, answer, icon }: Props) => {
 	const [show, setShow] = useState<boolean>(false)
 	return (
 		<div
@@ -26,6 +30,11 @@ const Accordion = ({ id, question, answer }: FAQ) => {
 				className={`w-full py-[20px] lg:py-[40px] text-left uppercase font-heading-narrow font-extrabold leading-normal text-[32px] md:text-[56px] cursor-pointer relative ${
 					show ? 'after:content-["-"]' : 'after:content-["+"]'
 				} after:block after:absolute after:right-0 after:top-[40%] after:leading-[0] after:transition-all after:duration-500 `}>
+				{icon && (
+					<span
+						className='inline-block w-14 h-14 rounded-full bg-[var(--green)] mr-[0.4em] align-middle'
+						style={{ backgroundImage: `url(${icon})` }}></span>
+				)}
 				{question}
 			</motion.button>
 

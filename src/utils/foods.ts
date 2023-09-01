@@ -6,10 +6,10 @@ export interface FoodTab {
 	img: string
 }
 
-interface Aaccordion {
+export interface Aaccordion {
 	icon: string
 	title: string
-	description: string[]
+	description: string
 }
 
 interface Food {
@@ -62,28 +62,25 @@ export const foods: Food[] = [
 			{
 				icon: '/images/ingredients.svg',
 				title: 'Ingredients',
-				description: [
+				description:
 					'Water, Textured Vegetable Protein (28%) (Pea Protein Concentrate, Faba Protein Concentrate, Salt), Yeast Extract, Colour (Caramel), Black Pepper, Garlic Powder. ',
-				],
 			},
 			{
 				icon: '/images/allergen.svg',
 				title: 'Allergen Information',
-				description: ['For allergens see ingredients in bold.'],
+				description: 'For allergens see ingredients in bold.',
 			},
 			{
 				icon: '/images/storage.svg',
 				title: 'Storage',
-				description: [
+				description:
 					'Keep frozen at -18°C or cooler. Important: If food has thawed, do not refreeze.',
-				],
 			},
 			{
 				icon: '/images/cooking.svg',
 				title: 'Cooking Instructions',
-				description: [
+				description:
 					'Cooking Guidelines from Frozen: Remove all packaging. Shallow Fry: Place a small amount of cooking oil into pan. Once oil is hot add required number of pieces to pan and fry over a medium heat for 4 minutes. Oven Cook: Place on a baking tray and cook in a pre-heated oven at 200°C / 180°C Fan Assisted / Gas Mark 4 for approximately 4 minutes. Cooking times may vary. Cook throughout to a minimum temperature of 75°C for 30 seconds or apply national standards.',
-				],
 			},
 		],
 		weight: '500G',
