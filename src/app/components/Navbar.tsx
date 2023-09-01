@@ -83,7 +83,11 @@ const Navbar = () => {
 				)
 					setTextWhite(true)
 				else setTextWhite(false)
-			} else if (pathName === '/contact' || pathName === '/privacy-policy') {
+			} else if (
+				pathName === '/contact' ||
+				pathName === '/privacy-policy' ||
+				pathName === '/products'
+			) {
 				setTextWhite(true)
 			}
 		}
@@ -102,7 +106,7 @@ const Navbar = () => {
 	return (
 		<nav
 			className={`block w-full h-auto md:h-16 sm:h-auto z-[9999] ${
-				navOpen ? 'fixed top-0 left-0 bottom-0' : 'absolute'
+				navOpen ? 'fixed top-0 left-0 bottom-0 z-[999999]' : 'absolute'
 			} md:fixed ${showNavbar ? 'top-0' : '-top-40'} md:bottom-auto ${
 				textWhite && values?.isTextWhite
 					? 'text-[var(--white)]'
@@ -118,7 +122,11 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
 					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
-						<Link href='/#about'> About</Link>
+						<Link href='/#about' className='text-white'>
+							{' '}
+							About {textWhite ? 1 : 0} {values?.isTextWhite ? 1 : 0}{' '}
+							{navOpen ? 1 : 0}{' '}
+						</Link>
 					</li>
 
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
@@ -166,12 +174,10 @@ const Navbar = () => {
 						<motion.li
 							initial={{
 								opacity: 0,
-								scale: 0.9,
 								y: 10,
 							}}
 							whileInView={{
 								opacity: 1,
-								scale: 1,
 								y: 0,
 							}}
 							transition={{ delay: 0.8 }}
@@ -190,12 +196,10 @@ const Navbar = () => {
 						<motion.li
 							initial={{
 								opacity: 0,
-								scale: 0.9,
 								y: 10,
 							}}
 							whileInView={{
 								opacity: 1,
-								scale: 1,
 								y: 0,
 							}}
 							transition={{ delay: 0.9 }}

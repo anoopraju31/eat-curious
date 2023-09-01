@@ -17,6 +17,7 @@ export interface Product {
 	name: string
 	link: string
 	img: string
+	thin?: boolean
 	imgAnimation: Animation[]
 }
 
@@ -53,10 +54,11 @@ export const products: Product[] = [
 		name: 'pieces',
 		link: '/products/pieces',
 		img: 'url("/images/products/pieces-7-e1689971037607-473x214.png")',
+		thin: true,
 		imgAnimation: [
 			{
 				initial: { x: '-120vw', y: '-120vh' },
-				hover: { x: '0vw', y: '0vh', scaleX: -1, rotate: -20 },
+				hover: { x: '0', y: '0', scaleX: -1, rotate: -20 },
 			},
 			{
 				initial: { y: '-120vh' },
@@ -294,6 +296,7 @@ export const products: Product[] = [
 		name: 'bangers',
 		link: '/products/bangers',
 		img: 'url("/images/products/bangers-7-e1668786408139-473x324.png")',
+		thin: true,
 		imgAnimation: [
 			{
 				initial: { x: '-120vw', y: '-120vh' },

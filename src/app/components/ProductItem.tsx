@@ -6,7 +6,7 @@ import { transition } from '@/utils/animations'
 import { Product, backgrounds, layouts } from '@/utils/products'
 import { context } from './Context'
 
-const ProductItem = ({ id, name, link, img, imgAnimation }: Product) => {
+const ProductItem = ({ id, name, link, img, thin, imgAnimation }: Product) => {
 	const [background, setBackground] = useState<string>('transparent')
 	const values = useContext(context)
 	const controls = useAnimation()
@@ -43,7 +43,9 @@ const ProductItem = ({ id, name, link, img, imgAnimation }: Product) => {
 
 			<span
 				style={{ background: background }}
-				className='w-[120vw] h-[120vh]  fixed -top-[10vh] -bottom-[10vh] -left-[10vw] -right-[10vw] bg-no-repeat bg-center bg-cover pointer-events-none -z-10 lg:grid grid-cols-4 grid-rows-3 gap-5 '>
+				className={`w-[120vw] xl:w-[130vw] h-[120vh] ${
+					thin === true ? 'xl:h-[130vh]' : 'xl:h-[81.25vw]'
+				} fixed -top-[10vh] xl:top-[50vh] -bottom-[10vh] xl:bottom-auto -left-[10vw] xl:left-[50vw] -right-[10vw] xl:right-auto xl:-translate-x-[50%] xl:-translate-y-[50%] bg-no-repeat bg-center bg-cover pointer-events-none -z-10 lg:grid grid-cols-4 grid-rows-3 gap-5`}>
 				{imgAnimation.map((variant, idx) => (
 					<motion.span
 						key={idx}
