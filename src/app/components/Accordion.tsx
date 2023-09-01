@@ -14,7 +14,7 @@ const Accordion = ({ id, question, answer, icon, iconBackground }: Props) => {
 	const [show, setShow] = useState<boolean>(false)
 
 	useEffect(() => {
-		if (id === 0) setShow(true)
+		if (id === 1) setShow(true)
 	}, [])
 	return (
 		<div

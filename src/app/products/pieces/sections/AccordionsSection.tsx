@@ -15,7 +15,7 @@ const AccordionsSection = ({ accordions }: Props) => {
 			{accordions.map((accordion, idx) => (
 				<Accordion
 					key={idx}
-					id={idx}
+					id={idx + 1}
 					icon={accordion.icon}
 					question={accordion.title}
 					answer={accordion.description}
