@@ -10,6 +10,7 @@ import { pop, view } from '@/utils/animations'
 import { context } from './Context'
 import { useRouter } from 'next/navigation'
 import { useCurrentWidth } from '@/hooks'
+import { isValidProductsRoute } from '@/utils/routeCheck'
 
 const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
@@ -221,8 +222,19 @@ const Navbar = () => {
 				{/* Menu */}
 				<button
 					onClick={() => setNavOpen((prev) => !prev)}
+					style={{
+						backgroundColor: navOpen
+							? '#042f1a'
+							: isValidProductsRoute(pathName) && values?.backgroundColor
+							? values?.backgroundColor
+							: '#ff73b5',
+					}}
 					className={`rounded px-[10px] md:hidden fixed top-4 right-4 z-50 cursor-pointer w-10 h-10 ${
-						navOpen ? 'bg-[var(--black)]' : 'bg-[var(--pink)]'
+						navOpen
+							? 'bg-[var(--black)]'
+							: isValidProductsRoute(pathName) && values?.backgroundColor
+							? `bg-[${values?.backgroundColor}]`
+							: 'bg-[var(--pink)]'
 					} transition-colors duration-500 ease-in-out`}>
 					<div className='w-full h-auto block align-middle'>
 						<span

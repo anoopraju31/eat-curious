@@ -2,6 +2,8 @@
 import Link from 'next/link'
 import { marquee } from '@/utils/animations'
 import { motion, useAnimation } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { isValidProductsRoute } from '@/utils/routeCheck'
 
 type Props = {
 	title: string
@@ -11,6 +13,7 @@ type Props = {
 }
 
 const Button = ({ title, link, isSmall, background }: Props) => {
+	const pathName = usePathname()
 	const controls = useAnimation()
 	const handleMouseEnterControls = () => {
 		controls.start('animate')
@@ -26,7 +29,8 @@ const Button = ({ title, link, isSmall, background }: Props) => {
 			onMouseLeave={handleMouseLeaveControls}
 			href={link}
 			style={{
-				backgroundColor: background ? background : '#ff73b5',
+				backgroundColor:
+					background && isValidProductsRoute(pathName) ? background : '#ff73b5',
 			}}
 			className={`relative group font-heading-narrow font-extrabold text-center ${
 				isSmall ? 'text-base md:text-lg' : 'text-xl md:text-2xl'
