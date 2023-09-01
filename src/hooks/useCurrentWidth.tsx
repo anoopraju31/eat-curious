@@ -1,10 +1,17 @@
 'use client'
 import { useEffect, useState } from 'react'
 
-const getWidth = () =>
-	window.innerWidth ||
-	document.documentElement.clientWidth ||
-	document.body.clientWidth
+const isBrowser = () => typeof window !== 'undefined'
+
+const getWidth = () => {
+	if (isBrowser()) {
+		return (
+			window.innerWidth ||
+			document.documentElement.clientWidth ||
+			document.body.clientWidth
+		)
+	}
+}
 
 function useCurrentWidth() {
 	let [width, setWidth] = useState(getWidth())
