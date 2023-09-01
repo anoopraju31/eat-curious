@@ -8,8 +8,9 @@ export interface Props {
 	question: string
 	answer: string
 	icon?: string
+	iconBackground?: string
 }
-const Accordion = ({ id, question, answer, icon }: Props) => {
+const Accordion = ({ id, question, answer, icon, iconBackground }: Props) => {
 	const [show, setShow] = useState<boolean>(false)
 
 	useEffect(() => {
@@ -37,7 +38,10 @@ const Accordion = ({ id, question, answer, icon }: Props) => {
 				{icon && (
 					<span
 						className='inline-block w-14 h-14 rounded-full bg-[var(--green)] mr-[0.4em] align-middle'
-						style={{ backgroundImage: `url(${icon})` }}></span>
+						style={{
+							backgroundImage: `url(${icon})`,
+							backgroundColor: iconBackground,
+						}}></span>
 				)}
 				{question}
 			</motion.button>
