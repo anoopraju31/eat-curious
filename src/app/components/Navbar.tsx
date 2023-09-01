@@ -122,11 +122,7 @@ const Navbar = () => {
 					whileInView='animate'
 					className='w-full mx-auto pr-[50px] text-left hidden md:flex flex-row flex-nowrap items-baseline'>
 					<li className='mr-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>
-						<Link href='/#about' className='text-white'>
-							{' '}
-							About {textWhite ? 1 : 0} {values?.isTextWhite ? 1 : 0}{' '}
-							{navOpen ? 1 : 0}{' '}
-						</Link>
+						<Link href='/#about'>About</Link>
 					</li>
 
 					<li className='mx-auto font-semibold align-top text-base md:text-lg leading-[1.2em] md:inline-block uppercase'>

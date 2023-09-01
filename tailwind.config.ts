@@ -10,6 +10,7 @@ const config: Config = {
 		extend: {
 			fontFamily: {
 				'text-font': 'var(--text-font)',
+				headingFont: 'var(--headingFont)',
 				'heading-narrow': 'var(--heading-narrow)',
 			},
 			letterSpacing: {

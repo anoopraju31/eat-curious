@@ -1,4 +1,5 @@
 interface FoodTab {
+	title: string
 	description: string
 	enquire: string
 	color: string
@@ -25,6 +26,7 @@ export const foods: Food[] = [
 		title: 'Curious Pieces',
 		tabs: [
 			{
+				title: 'Hot & Spicy',
 				description:
 					'Tender delicious juicy protein pieces coated in a hot and spicy glaze. Perfect for those with dietary restrictions, our pieces contain no allergens such as dairy, gluten, soy, and nuts. Our versatile Eat Curious pieces are perfect for a variety of culinary applications including pizza toppings, pies, salad bowls, stir-fry, pasta dishes, curries and more!',
 				enquire: '/contact',
@@ -32,6 +34,7 @@ export const foods: Food[] = [
 				img: '/images/products/pieces/pieces-8-1200x1200.jpg',
 			},
 			{
+				title: 'Smokey BBQ',
 				description:
 					'Tender delicious juicy protein pieces coated in a smokey BBQ glaze. Perfect for those with dietary restrictions, our pieces contain no allergens such as dairy, gluten, soy, and nuts. Our versatile Eat Curious pieces are perfect for a variety of culinary applications including pizza toppings, pies, salad bowls, stir-fry, pasta dishes, curries and more!',
 				enquire: '/contact',
@@ -39,6 +42,7 @@ export const foods: Food[] = [
 				img: '/images/products/pieces/pieces-9-1200x1200.jpg',
 			},
 			{
+				title: "Mooin'",
 				description:
 					'Tender delicious juicy protein pieces. Perfect for those with dietary restrictions, our pieces contain no allergens such as dairy, gluten, soy, and nuts. Our versatile Eat Curious pieces are perfect for a variety of culinary applications including pizza toppings, pies, salad bowls, stir-fry, pasta dishes, curries and more!',
 				enquire: '/contact',
