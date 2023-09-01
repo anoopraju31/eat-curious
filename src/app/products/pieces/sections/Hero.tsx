@@ -1,7 +1,8 @@
+'use client'
 import { Button } from '@/app/components'
 import { FoodTab } from '@/utils/foods'
 import Image from 'next/image'
-import React from 'react'
+import { useState } from 'react'
 
 interface Props {
 	title: string
@@ -9,6 +10,7 @@ interface Props {
 }
 
 const Hero = ({ title, tabs }: Props) => {
+	const [tabId, setTabId] = useState<number>(0)
 	return (
 		<header className='w-full min-h-screen h-auto relative overflow-hidden pt-[80px] md:pt-[100px] xl:pt-[160px] pb-[var(--padding-y)] md:pb-[var(--padding-y-sm)] lg:pb-[var(--padding-y-lg)] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] lg:flex justify-between items-center text-[var(--white)]'>
 			{/* Text Container */}
@@ -31,6 +33,7 @@ const Hero = ({ title, tabs }: Props) => {
 					{tabs.map((tab, idx) => (
 						<button
 							key={idx}
+							onClick={() => setTabId(idx)}
 							className={`w-auto pt-[0.3em] px-[0.7em] pb-[0.6em] bg-[rgba(255,246,246,0.1)] font-heading-narrow font-semibold uppercase tracking-[0.02em] text-[15px] lg:text-[20px] ${
 								idx === 0 ? 'rounded-tl rounded-bl' : ''
 							} ${idx < tabs.length - 1 ? 'mr-[1px]' : ''} ${
@@ -51,36 +54,31 @@ const Hero = ({ title, tabs }: Props) => {
 				{/* Image */}
 				<div className='block lg:hidden mb-10'>
 					<Image
-						className='w-full aspect-square object-cover'
-						src='/images/products/pieces/pieces-8-1200x1200.jpg'
-						alt=''
+						className='w-full h-full object-cover'
+						src={tabs[tabId].img}
+						alt={title}
 						width={1200}
 						height={1200}
 					/>
 				</div>
 
 				{/* Description */}
-				<p className='mb-[25px]'>
-					Tender delicious juicy protein pieces coated in a hot and spicy glaze.
-					Perfect for those with dietary restrictions, our pieces contain no
-					allergens such as dairy, gluten, soy, and nuts. Our versatile Eat
-					Curious pieces are perfect for a variety of culinary applications
-					including pizza toppings, pies, salad bowls, stir-fry, pasta dishes,
-					curries and more!
-				</p>
+				<p className='mb-[25px]'> {tabs[tabId].description} </p>
 
 				{/* Enquiry Button  */}
-				<div className=' mx-auto lg:mx-0'>
-					<Button title='Enquire Now' link='/contact' />
-				</div>
+				{tabs[tabId].enquire && (
+					<div className=' mx-auto lg:mx-0'>
+						<Button title='Enquire Now' link={tabs[tabId].enquire} />
+					</div>
+				)}
 			</div>
 
 			{/* Image Container */}
 			<div className='hidden lg:block max-w-[50%] '>
 				<Image
-					className='w-full aspect-square object-cover'
-					src='/images/products/pieces/pieces-8-1200x1200.jpg'
-					alt=''
+					className='w-full h-full object-cover'
+					src={tabs[tabId].img}
+					alt={title}
 					width={1200}
 					height={1200}
 				/>
