@@ -7,7 +7,7 @@ import { isValidProductsRoute } from '@/utils/routeCheck'
 
 type Props = {
 	title: string
-	link: string
+	link?: string
 	isSmall?: boolean
 	background?: string
 }
@@ -27,7 +27,7 @@ const Button = ({ title, link, isSmall, background }: Props) => {
 		<Link
 			onMouseEnter={handleMouseEnterControls}
 			onMouseLeave={handleMouseLeaveControls}
-			href={link}
+			href={link ? link : '/'}
 			style={{
 				backgroundColor:
 					background && isValidProductsRoute(pathName) ? background : '#ff73b5',

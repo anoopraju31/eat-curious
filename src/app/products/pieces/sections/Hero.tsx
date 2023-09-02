@@ -33,6 +33,7 @@ const Hero = ({ title, tabs }: Props) => {
 							style={{
 								backgroundColor:
 									tabId === idx ? tab.color : 'rgba(255,246,246,0.1)',
+								color: tabId === idx ? '#042f1a' : '#fff6f6',
 							}}
 							className={`w-auto pt-[0.3em] px-[0.7em] pb-[0.6em] font-heading-narrow font-semibold uppercase tracking-[0.02em] text-[15px] lg:text-[20px] ${
 								idx === 0 ? 'rounded-tl rounded-bl' : ''
@@ -54,7 +55,7 @@ const Hero = ({ title, tabs }: Props) => {
 				{/* Image */}
 				<div className='block lg:hidden mb-10'>
 					<Image
-						className='w-full h-full object-cover'
+						className='w-full h-full object-cover aspect-square rounded'
 						src={tabs[tabId].img}
 						alt={title}
 						width={1200}
@@ -80,7 +81,7 @@ const Hero = ({ title, tabs }: Props) => {
 			{/* Image Container */}
 			<div className='hidden lg:block max-w-[50%] '>
 				<Image
-					className='w-full h-full object-cover'
+					className='w-full h-full object-cover aspect-square rounded'
 					src={tabs[tabId].img}
 					alt={title}
 					width={1200}

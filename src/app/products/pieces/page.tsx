@@ -7,12 +7,12 @@ import { Intrigued } from '@/app/(home)/sections'
 const PiecesPage = () => {
 	return (
 		<main className='w-full mx-auto bg-[var(--white)]'>
-			<Hero title={foods[0].title} tabs={foods[0].tabs} />
-			<Tickers ticks={foods[0].ticker} />
+			<Hero title={foods[10].title} tabs={foods[10].tabs} />
+			{foods[10].ticker && <Tickers ticks={foods[10].ticker} />}
 			<AccordionsSection
-				accordions={foods[0].accordion}
-				weight={foods[0].weight}
-				caseValue={foods[0].case}
+				accordions={foods[10].accordion}
+				weight={foods[10].weight}
+				caseValue={foods[10].case}
 			/>
 			<Intrigued />
 			<Footer />
