@@ -15,7 +15,9 @@ export default function RootLayout({
 	return (
 		<html lang='en'>
 			<head>
+				<link rel='icon' href='/favicon.ico' sizes='any' />
 				<link rel='stylesheet' href='https://use.typekit.net/sqg3ceb.css' />
+				<title> Eat Curious | Meat free your mind </title>
 			</head>
 			<body className='bg-[var(--white)] leading-[1.6em] font-light font-text-font text-lg'>
 				<Context>
