@@ -13,6 +13,7 @@ export interface Aaccordion {
 }
 
 interface Food {
+	id: string
 	title: string
 	tabs: FoodTab[]
 	ticker?: string[]
@@ -23,6 +24,7 @@ interface Food {
 
 export const foods: Food[] = [
 	{
+		id: 'pieces',
 		title: 'Curious Pieces',
 		tabs: [
 			{
@@ -87,6 +89,7 @@ export const foods: Food[] = [
 		case: '2KG',
 	},
 	{
+		id: 'mince',
 		title: 'Curious Mince',
 		tabs: [
 			{
@@ -149,6 +152,7 @@ export const foods: Food[] = [
 		case: '2KG',
 	},
 	{
+		id: 'negg',
 		title: 'Curious Negg',
 		tabs: [
 			{
@@ -189,6 +193,7 @@ export const foods: Food[] = [
 		case: '3KG',
 	},
 	{
+		id: 'fillet',
 		title: 'Curious Fillets',
 		tabs: [
 			{
@@ -246,6 +251,7 @@ export const foods: Food[] = [
 		case: '2.5KG',
 	},
 	{
+		id: 'tenders',
 		title: 'Curious Tenders',
 		tabs: [
 			{
@@ -302,6 +308,7 @@ export const foods: Food[] = [
 		case: '3.25KG',
 	},
 	{
+		id: 'bangers',
 		title: 'Curious Bangers',
 		tabs: [
 			{
@@ -361,6 +368,7 @@ export const foods: Food[] = [
 		case: '4.05KG',
 	},
 	{
+		id: 'pattie',
 		title: 'Curious Pattie',
 		tabs: [
 			{
@@ -420,6 +428,7 @@ export const foods: Food[] = [
 		case: '3.25KG',
 	},
 	{
+		id: 'block',
 		title: 'Curious Block',
 		tabs: [
 			{
@@ -487,6 +496,7 @@ export const foods: Food[] = [
 		case: '4KG',
 	},
 	{
+		id: 'roast',
 		title: 'Curious Roast',
 		tabs: [
 			{
@@ -535,6 +545,7 @@ export const foods: Food[] = [
 		case: '3KG',
 	},
 	{
+		id: 'en-croute',
 		title: 'Curious En Croute',
 		tabs: [
 			{
@@ -594,6 +605,7 @@ export const foods: Food[] = [
 		case: '3.42KG',
 	},
 	{
+		id: 'burgers',
 		title: 'Curious Burger',
 		tabs: [
 			{
