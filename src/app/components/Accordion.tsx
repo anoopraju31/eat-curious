@@ -15,7 +15,7 @@ const Accordion = ({ id, question, answer, icon, iconBackground }: Props) => {
 
 	useEffect(() => {
 		if (id === 1) setShow(true)
-	}, [])
+	}, [id])
 	return (
 		<div
 			onClick={() => setShow((prev) => !prev)}
