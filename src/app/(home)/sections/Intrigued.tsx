@@ -2,8 +2,14 @@
 import { Button } from '@/app/components'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
+import { usePathname } from 'next/navigation'
+import { context } from '@/app/components/Context'
+import { useContext } from 'react'
+import { isValidProductsRoute } from '@/utils/routeCheck'
 
 const Intrigued = () => {
+	const pathName = usePathname()
+	const values = useContext(context)
 	return (
 		<section
 			id='intrigued'
@@ -14,7 +20,15 @@ const Intrigued = () => {
 						Intrigued?
 					</h3>
 					<p className='mx-auto mb-[3em] max-w-[440px] '>
-						<Button title="Let's chat" link='/contact' />
+						<Button
+							title="Let's chat"
+							link='/contact'
+							background={
+								isValidProductsRoute(pathName)
+									? values?.backgroundColor
+									: undefined
+							}
+						/>
 					</p>
 				</div>
 
