@@ -19,7 +19,7 @@ const Hero = ({ title, tabs }: Props) => {
 	}, [tabId])
 
 	return (
-		<header className='w-full min-h-screen h-auto relative overflow-hidden pt-[80px] md:pt-[100px] xl:pt-[160px] pb-[var(--padding-y)] md:pb-[var(--padding-y-sm)] lg:pb-[var(--padding-y-lg)] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] lg:flex justify-between items-center text-[var(--white)]'>
+		<header className='w-full min-h-screen h-auto relative overflow-hidden pt-[80px] md:pt-[100px] xl:pt-[160px] pb-[var(--padding-y)] md:pb-[var(--padding-y-sm)] lg:pb-[var(--padding-y-lg)] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] lg:flex justify-between items-center text-[var(--white)] bg-[var(--black)]'>
 			{/* Text Container */}
 			<div className='lg:w-1/2 lg:max-w-[470px] lg:relative text-center lg:text-left flex flex-col overflow-visible'>
 				{/* Tab Buttons */}

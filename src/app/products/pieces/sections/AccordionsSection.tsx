@@ -3,15 +3,19 @@ import { Accordion } from '@/app/components'
 import { context } from '@/app/components/Context'
 import { Aaccordion } from '@/utils/foods'
 import { useContext } from 'react'
+import { motion } from 'framer-motion'
+import { pop } from '@/utils/animations'
 
 interface Props {
 	accordions: Aaccordion[]
+	weight: string
+	caseValue: string
 }
 
-const AccordionsSection = ({ accordions }: Props) => {
+const AccordionsSection = ({ accordions, weight, caseValue }: Props) => {
 	const values = useContext(context)
 	return (
-		<section className='relative w-full mb-[30px] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] yl:py-[var(--padding-y-lg)] '>
+		<section className='relative w-full mb-[30px] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] yl:py-[var(--padding-y-lg)] bg-[var(--black)]'>
 			{accordions.map((accordion, idx) => (
 				<Accordion
 					key={idx}
@@ -22,6 +26,41 @@ const AccordionsSection = ({ accordions }: Props) => {
 					iconBackground={values?.backgroundColor}
 				/>
 			))}
+			<div className='w-full px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] text-[var(--white)] border-b border-b-[rgba(255,246,246,0.1)]'>
+				<motion.button
+					variants={pop}
+					initial='initial'
+					whileInView='animate'
+					viewport={{ once: true }}
+					transition={{
+						stiffness: 10,
+					}}
+					className={`inline-block py-[20px] lg:py-[40px] text-left uppercase font-heading-narrow font-extrabold leading-normal text-[32px] md:text-[56px] cursor-pointer relative mr-[1em]`}>
+					<span
+						className='inline-block w-14 h-14 rounded-full bg-[var(--green)] mr-[0.4em] align-middle bg-weight'
+						style={{
+							backgroundColor: values?.backgroundColor,
+						}}></span>
+					Weight: {weight}
+				</motion.button>
+
+				<motion.button
+					variants={pop}
+					initial='initial'
+					whileInView='animate'
+					viewport={{ once: true }}
+					transition={{
+						stiffness: 10,
+					}}
+					className={`inline-block pb-[20px] lg:py-[40px] text-left uppercase font-heading-narrow font-extrabold leading-normal text-[32px] md:text-[56px] cursor-pointer relative mr-[1em]`}>
+					<span
+						className='inline-block w-14 h-14 rounded-full bg-[var(--green)] mr-[0.4em] align-middle bg-case'
+						style={{
+							backgroundColor: values?.backgroundColor,
+						}}></span>
+					Case: {caseValue}
+				</motion.button>
+			</div>
 		</section>
 	)
 }

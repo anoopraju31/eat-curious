@@ -36,6 +36,8 @@ const config: Config = {
 				'curve-white': 'url("/images/curve-white.svg")',
 				'curve-white-md': 'url("/images/curve-white-md.svg")',
 				'curve-white-xl': 'url("/images/curve-white-xl.svg")',
+				weight: 'url("/images/weight.svg")',
+				case: 'url("/images/case.svg")',
 				plus: 'url("/images/plus.svg")',
 				pieces: 'url("/images/products/pieces-7-e1689971037607-473x214.png")',
 				mince: 'url("/images/products/mince-9-e1689971464732-471x473.png")',
