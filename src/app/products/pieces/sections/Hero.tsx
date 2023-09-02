@@ -16,7 +16,7 @@ const Hero = ({ title, tabs }: Props) => {
 
 	useEffect(() => {
 		values?.setBackgroundColor(tabs[tabId].color)
-	}, [tabId])
+	}, [tabId, values, tabs])
 
 	return (
 		<header className='w-full min-h-screen h-auto relative overflow-hidden pt-[80px] md:pt-[100px] xl:pt-[160px] pb-[var(--padding-y)] md:pb-[var(--padding-y-sm)] lg:pb-[var(--padding-y-lg)] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] lg:flex justify-between items-center text-[var(--white)] bg-[var(--black)]'>

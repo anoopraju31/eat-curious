@@ -15,7 +15,7 @@ interface Props {
 const AccordionsSection = ({ accordions, weight, caseValue }: Props) => {
 	const values = useContext(context)
 	return (
-		<section className='relative w-full mb-[30px] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] yl:py-[var(--padding-y-lg)] bg-[var(--black)]'>
+		<section className='relative w-full py-[var(--padding-y)] md:py-[var(--padding-y-sm)] yl:py-[var(--padding-y-lg)] bg-[var(--black)]'>
 			{accordions.map((accordion, idx) => (
 				<Accordion
 					key={idx}

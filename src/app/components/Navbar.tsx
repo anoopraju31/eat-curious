@@ -6,10 +6,9 @@ import { useState, useLayoutEffect, useContext, useEffect } from 'react'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { Button, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import { pop, view } from '@/utils/animations'
+import { view } from '@/utils/animations'
 import { context } from './Context'
 import { useRouter } from 'next/navigation'
-import { useCurrentWidth } from '@/hooks'
 import { isValidProductsRoute } from '@/utils/routeCheck'
 
 const Navbar = () => {
@@ -20,7 +19,6 @@ const Navbar = () => {
 	const { scrollY } = useScroll()
 	const pathName = usePathname()
 	const router = useRouter()
-	const currentWidth = useCurrentWidth()
 
 	const values = useContext(context)
 
@@ -91,7 +89,9 @@ const Navbar = () => {
 			) {
 				setTextWhite(true)
 			} else if (isValidProductsRoute(pathName)) {
-				setTextWhite(true)
+				if (scrollHeight < intriguedOffsetTop) {
+					setTextWhite(true)
+				} else setTextWhite(false)
 			}
 		}
 
@@ -103,12 +103,27 @@ const Navbar = () => {
 	}, [scrollHeight, pathName])
 
 	useLayoutEffect(() => {
-		if (currentWidth >= 768) setNavOpen(false)
-	}, [currentWidth])
+		const resizeListener = () => {
+			if (typeof window !== 'undefined') {
+				const currentWidth =
+					window.innerWidth ||
+					document.documentElement.clientWidth ||
+					document.body.clientWidth
+
+				if (currentWidth >= 768) setNavOpen(false)
+			}
+		}
+
+		window.addEventListener('resize', resizeListener)
+
+		return () => {
+			window.removeEventListener('resize', resizeListener)
+		}
+	}, [])
 
 	useEffect(() => {
 		if (pathName !== '/products') values?.setIsTextWhite(true)
-	}, [pathName])
+	}, [pathName, values])
 
 	return (
 		<nav
