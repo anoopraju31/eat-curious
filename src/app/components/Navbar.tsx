@@ -177,10 +177,6 @@ const Navbar = () => {
 						<Link href='/#about'> Recipes </Link>
 					</li>
 
-					{/* <li className='text-base md:text-lg font-extrabold align-top rounded-md md:inline-block md:mr-0 px-[0.7em] py-[0.2em] bg-[var(--pink)] text-[var(--black)]'>
-						<Link href='/contact'> Contact Us </Link>
-					</li> */}
-
 					<li>
 						<Button
 							title='Contact Us'
