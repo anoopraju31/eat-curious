@@ -1,7 +1,6 @@
 'use client'
 
-import useNavbarVisibility from '../hooks/useNavbarVisibility'
-import useNavbarMenuToggle from '../hooks/useNavbarMenuToggle'
+import { useNavbarMenuToggle, useNavbarVisibility } from '../hooks'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
@@ -11,19 +10,18 @@ import { view } from '@/utils/animations'
 const Navbar = () => {
 	const { navOpen, changeNavMenu, toggleNavMenu } = useNavbarMenuToggle()
 	const { showNavbar, textWhite, values } = useNavbarVisibility()
-
 	const isFillWhite = textWhite && (values?.isTextWhite as boolean) && !navOpen
 
 	return (
 		<nav
 			className={`block w-full h-auto md:h-16 sm:h-auto z-[9999] ${
-				navOpen ? 'fixed top-0 left-0 bottom-0 z-[999999]' : 'absolute'
+				navOpen
+					? 'fixed top-0 left-0 bottom-0 z-[999999] bg-[var(--pink)]'
+					: 'absolute bg-transparent'
 			} md:fixed ${showNavbar ? 'top-0' : '-top-40'} md:bottom-auto ${
 				textWhite && values?.isTextWhite
 					? 'text-[var(--white)]'
 					: 'text-[var(--black)]'
-			} ${
-				navOpen ? 'bg-[var(--pink)]' : 'bg-transparent'
 			} font-heading-narrow`}>
 			<div className='w-full px-[25px] md:px-[60px] xl:px-[107px] md:flex md:items-center md:h-[100px] xl:h-[120px]'>
 				{/* Navigation desktop - left */}
@@ -66,7 +64,7 @@ const Navbar = () => {
 				{/* Mobile Navigation Menu */}
 				{navOpen && <NavMobileMenu closeMenu={changeNavMenu} />}
 
-				{/* Menu */}
+				{/* Hamburger Menu Button */}
 				<NavMenuButton isNavOpen={navOpen} toggleNavMenu={toggleNavMenu} />
 
 				{/* Social Media Links */}
