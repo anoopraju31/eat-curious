@@ -1,16 +1,18 @@
 'use client'
+
+import { useContext, useEffect, useState } from 'react'
+import Image from 'next/image'
 import { Button } from '@/app/components'
 import { context } from '@/app/components/Context'
 import { FoodTab } from '@/utils/foods'
-import Image from 'next/image'
-import { useContext, useEffect, useState } from 'react'
 
-interface Props {
+interface HeroProps {
 	title: string
 	tabs: FoodTab[]
 }
 
-const Hero = ({ title, tabs }: Props) => {
+const Hero = (props: HeroProps) => {
+	const { title, tabs } = props
 	const [tabId, setTabId] = useState<number>(0)
 	const values = useContext(context)
 
