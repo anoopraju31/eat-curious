@@ -6,7 +6,11 @@ import { useState, useLayoutEffect, useContext, useEffect } from 'react'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { Button, FooterLink, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
-import { view } from '@/utils/animations'
+import {
+	slideDownView,
+	slideDownViewTransition,
+	view,
+} from '@/utils/animations'
 import { context } from './Context'
 import { useRouter } from 'next/navigation'
 import { isValidProductsRoute } from '@/utils/routeCheck'
@@ -180,15 +184,10 @@ const Navbar = () => {
 				{navOpen && (
 					<ul className='flex md:hidden w-full h-full z-30 mx-auto py-[80px] md:py-[100px] xl:py-[120px] flex-col justify-center absolute top-0 left-0 right-0 bottom-0 overflow-auto text-center '>
 						<motion.li
-							initial={{
-								opacity: 0,
-								y: 10,
-							}}
-							whileInView={{
-								opacity: 1,
-								y: 0,
-							}}
-							transition={{ delay: 0.8 }}
+							variants={slideDownView}
+							initial='initial'
+							whileInView='view'
+							transition={slideDownViewTransition(0.8)}
 							className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
 							<Link
 								onClick={() => {
@@ -202,15 +201,10 @@ const Navbar = () => {
 						</motion.li>
 
 						<motion.li
-							initial={{
-								opacity: 0,
-								y: 10,
-							}}
-							whileInView={{
-								opacity: 1,
-								y: 0,
-							}}
-							transition={{ delay: 0.9 }}
+							variants={slideDownView}
+							initial='initial'
+							whileInView='view'
+							transition={slideDownViewTransition(0.9)}
 							className='w-full text-[13vw] relative leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
 							<Link
 								onClick={() => {

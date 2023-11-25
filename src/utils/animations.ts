@@ -214,3 +214,21 @@ export const heroTransition = (delay: number) => ({
 	},
 	delay,
 })
+
+export const slideDownView = {
+	initial: {
+		opacity: 0,
+		y: 10,
+	},
+	view: {
+		opacity: 1,
+		y: 0,
+	},
+}
+
+export const slideDownViewTransition = (delay: number) => ({
+	delay,
+	type: 'spring',
+	bounce: 0.5,
+	ease: [0.5, 1.51, 0.55, 0.89],
+})
