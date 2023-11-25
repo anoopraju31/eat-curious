@@ -1,19 +1,22 @@
 'use client'
+
+import { useContext } from 'react'
+import { motion } from 'framer-motion'
 import { Accordion } from '@/app/components'
 import { context } from '@/app/components/Context'
 import { Aaccordion } from '@/utils/foods'
-import { useContext } from 'react'
-import { motion } from 'framer-motion'
 import { pop } from '@/utils/animations'
 
-interface Props {
+interface AccordionsSectionProps {
 	accordions: Aaccordion[]
 	weight?: string
 	caseValue?: string
 }
 
-const AccordionsSection = ({ accordions, weight, caseValue }: Props) => {
+const AccordionsSection = (props: AccordionsSectionProps) => {
+	const { accordions, weight, caseValue } = props
 	const values = useContext(context)
+
 	return (
 		<section className='relative w-full py-[var(--padding-y)] md:py-[var(--padding-y-sm)] yl:py-[var(--padding-y-lg)] bg-[var(--black)]'>
 			{accordions.map((accordion, idx) => (
@@ -26,6 +29,7 @@ const AccordionsSection = ({ accordions, weight, caseValue }: Props) => {
 					iconBackground={values?.backgroundColor}
 				/>
 			))}
+
 			<div className='w-full px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] text-[var(--white)] border-b border-b-[rgba(255,246,246,0.1)]'>
 				{weight && (
 					<motion.button
