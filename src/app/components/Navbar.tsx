@@ -2,22 +2,16 @@
 
 import useNavbarVisibility from '../hooks/useNavbarVisibility'
 import useNavbarMenuToggle from '../hooks/useNavbarMenuToggle'
-import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
-import { Button, FooterLink, Logo, NavMobileMenu } from '.'
-import {
-	slideDownView,
-	slideDownViewTransition,
-	view,
-} from '@/utils/animations'
-import { isValidProductsRoute } from '@/utils/routeCheck'
+import { Button, FooterLink, Logo, NavMenuButton, NavMobileMenu } from '.'
+import { view } from '@/utils/animations'
 
 const Navbar = () => {
 	const { navOpen, changeNavMenu, toggleNavMenu } = useNavbarMenuToggle()
 	const { showNavbar, textWhite, values } = useNavbarVisibility()
-	const pathName = usePathname()
+
 	const isFillWhite = textWhite && (values?.isTextWhite as boolean) && !navOpen
 
 	return (
@@ -73,39 +67,7 @@ const Navbar = () => {
 				{navOpen && <NavMobileMenu closeMenu={changeNavMenu} />}
 
 				{/* Menu */}
-				<button
-					type='button'
-					onClick={toggleNavMenu}
-					style={{
-						backgroundColor: navOpen
-							? '#042f1a'
-							: isValidProductsRoute(pathName) && values?.backgroundColor
-							? values?.backgroundColor
-							: '#ff73b5',
-					}}
-					className={`rounded px-[10px] md:hidden fixed top-4 right-4 z-50 cursor-pointer w-10 h-10 ${
-						navOpen
-							? 'bg-[var(--black)]'
-							: isValidProductsRoute(pathName) && values?.backgroundColor
-							? `bg-[${values?.backgroundColor}]`
-							: 'bg-[var(--pink)]'
-					} transition-colors duration-500 ease-in-out`}>
-					<div className='sr-only'> Menu </div>
-					<div className='w-full h-auto block align-middle'>
-						<span
-							className={`block w-full h-[3px] mb-1 ${
-								navOpen ? 'bg-transparent' : 'bg-[var(--black)]'
-							} transition-colors duration-1000 ease-in-out`}></span>
-						<span
-							className={`block w-full h-[3px] mb-1 ${
-								navOpen ? 'bg-[var(--white)]' : 'bg-[var(--black)]'
-							} transition-colors duration-1000 ease-in-out`}></span>
-						<span
-							className={`block w-full h-[3px] mb-1 ${
-								navOpen ? 'bg-transparent' : 'bg-[var(--black)]'
-							} transition-colors duration-1000 ease-in-out`}></span>
-					</div>
-				</button>
+				<NavMenuButton isNavOpen={navOpen} toggleNavMenu={toggleNavMenu} />
 
 				{/* Social Media Links */}
 				{navOpen && (
