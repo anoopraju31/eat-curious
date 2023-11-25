@@ -1,27 +1,46 @@
 'use client'
+
+import { usePathname } from 'next/navigation'
+import { AnimationControls, motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { marquee } from '@/utils/animations'
-import { motion, useAnimation } from 'framer-motion'
-import { usePathname } from 'next/navigation'
 import { isValidProductsRoute } from '@/utils/routeCheck'
 
-type Props = {
+interface ButtonProps {
 	title: string
 	link?: string
 	isSmall?: boolean
 	background?: string
 }
 
-const Button = ({ title, link, isSmall, background }: Props) => {
+interface ButtonTitleProps {
+	title: string
+	isSmall?: boolean
+	controls: AnimationControls
+}
+
+const ButtonTitle = (props: ButtonTitleProps) => {
+	const { title, isSmall, controls } = props
+	return (
+		<motion.span
+			variants={marquee}
+			initial='initial'
+			animate={controls}
+			className={`inline-block text-center px-[0.7em] pt-[0.2em] pb-[0.6em] ${
+				isSmall ? 'text-base md:text-lg' : 'text-[20px] md:text-[24px]'
+			}`}>
+			{title}
+		</motion.span>
+	)
+}
+
+const Button = (props: ButtonProps) => {
+	const { title, link, isSmall, background } = props
 	const pathName = usePathname()
 	const controls = useAnimation()
-	const handleMouseEnterControls = () => {
-		controls.start('animate')
-	}
 
-	const handleMouseLeaveControls = () => {
-		controls.start('initial')
-	}
+	const handleMouseEnterControls = () => controls.start('animate')
+	const handleMouseLeaveControls = () => controls.start('initial')
 
 	return (
 		<Link
@@ -37,26 +56,8 @@ const Button = ({ title, link, isSmall, background }: Props) => {
 			} text-[var(--black)] px-[0.7em] pt-[0.2em] pb-[0.2em] tracking-[0.01em] uppercase rounded`}>
 			<span className='opacity-0'> {title} </span>
 			<span className='absolute top-0 left-0 bottom-0 w-full overflow-hidden pointer-events-none whitespace-nowrap'>
-				<motion.span
-					variants={marquee}
-					initial='initial'
-					animate={controls}
-					className={`inline-block text-center px-[0.7em] pt-[0.2em] pb-[0.6em] ${
-						isSmall ? 'text-base md:text-lg' : 'text-[20px] md:text-[24px]'
-					}`}>
-					{' '}
-					{title}{' '}
-				</motion.span>
-				<motion.span
-					variants={marquee}
-					initial='initial'
-					animate={controls}
-					className={`inline-block text-center px-[0.7em] pt-[0.2em] pb-[0.6em] ${
-						isSmall ? 'text-base md:text-lg' : 'text-[20px] md:text-[24px]'
-					}`}>
-					{' '}
-					{title}{' '}
-				</motion.span>
+				<ButtonTitle title={title} isSmall={isSmall} controls={controls} />
+				<ButtonTitle title={title} isSmall={isSmall} controls={controls} />
 			</span>
 		</Link>
 	)
