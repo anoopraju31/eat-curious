@@ -1,30 +1,18 @@
 'use client'
+
 import Image from 'next/image'
-import React from 'react'
 import { motion } from 'framer-motion'
-import { foodPop } from '@/utils/animations'
+import { foodPop, heroTransition } from '@/utils/animations'
 
 const Hero = () => {
 	return (
 		<header className='w-full h-auto min-h-screen text-center relative bg-[var(--black)] z-50'>
-			{/* min-h-screen sm: */}
 			<div className='w-full max-w-[100vw] h-full min-h-screen sm:min-h-[var(--hero-height)] lg:min-h-screen py-[var(--padding-y)] sm:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] flex flex-col justify-around text-[var(--white)]'>
 				<motion.h1
 					variants={foodPop}
 					initial='initial'
 					whileInView='animate'
-					transition={{
-						scale: {
-							duration: 0.5,
-							type: 'spring',
-							bounce: 0.75,
-							ease: [0.5, 1.51, 0.55, 0.89],
-						},
-						opacity: {
-							duration: 0.5,
-						},
-						delay: 0.2,
-					}}
+					transition={heroTransition(0.2)}
 					viewport={{ once: true }}
 					className='mt-auto -mb-5 md:-mb-[30px] lg:-mb-[100px] relative lg:-top-[5vh] text-[30vw] md:text-[20vw] lg:text-[clamp(1vw,19.5vw,35vh)] font-heading-narrow font-extrabold leading-[0.85em] uppercase tracking-[-0.01em] pointer-events-none select-none'>
 					Meat
@@ -37,18 +25,7 @@ const Hero = () => {
 					variants={foodPop}
 					initial='initial'
 					whileInView='animate'
-					transition={{
-						scale: {
-							duration: 0.5,
-							type: 'spring',
-							bounce: 0.75,
-							ease: [0.5, 1.51, 0.55, 0.89],
-						},
-						opacity: {
-							duration: 0.5,
-						},
-						delay: 0.3,
-					}}
+					transition={heroTransition(0.3)}
 					viewport={{ once: true }}
 					className='md:w-[clamp(30vw,70vw,60vh)] lg:w-[40vw] minw-maxh-lg:w-[50vh] md:mx-auto relative md:aspect-[592/379]'>
 					<span className='absolute -top-1/4 left-1/2 bg-no-repeat bg-center bg-contain bg-squiggle1 w-[37px] h-[60px] pointer-events-none'></span>
@@ -68,18 +45,7 @@ const Hero = () => {
 					variants={foodPop}
 					initial='initial'
 					whileInView='animate'
-					transition={{
-						scale: {
-							duration: 0.5,
-							type: 'spring',
-							bounce: 0.75,
-							ease: [0.5, 1.51, 0.55, 0.89],
-						},
-						opacity: {
-							duration: 0.5,
-						},
-						delay: 0.4,
-					}}
+					transition={heroTransition(0.4)}
 					viewport={{ once: true }}
 					className='-mt-20 md:-mt-[100px] xl:-mt-[150px] mb-auto relative lg:-top-[5%] text-[30vw] md:text-[20vw] lg:text-[clamp(1vw,19.5vw,35vh)] font-heading-narrow font-extrabold leading-[0.85em] uppercase tracking-[-0.01em] pointer-events-none select-none'>
 					{' '}
