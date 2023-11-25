@@ -7,26 +7,7 @@ import { BsInstagram, BsFacebook, BsLinkedin } from 'react-icons/bs'
 import { context } from './Context'
 import { FeedMeMore, FooterForm } from '.'
 import { isValidProductsRoute } from '@/utils/routeCheck'
-import { IconType } from 'react-icons'
-
-interface FooterLinkProps {
-	link: string
-	title: string
-	Icon: IconType
-}
-
-const FooterLink = (props: FooterLinkProps) => {
-	const { link, title, Icon } = props
-
-	return (
-		<li>
-			<a href={link} rel='noopener' target='_blank'>
-				<span className='sr-only'> {title} </span>
-				<Icon />
-			</a>
-		</li>
-	)
-}
+import FooterLink from './FooterLink'
 
 const Footer = () => {
 	const pathName = usePathname()
