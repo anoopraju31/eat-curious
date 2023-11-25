@@ -41,7 +41,7 @@ const ProductItem = (props: Product) => {
 						? 'text-[var(--white)]'
 						: 'text-[var(--black)]'
 				}`}>
-				{name}-s
+				{name}
 			</Link>
 
 			<span
