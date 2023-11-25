@@ -1,6 +1,6 @@
 'use client'
 
-import { useContext, useState } from 'react'
+import { FC, useContext, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { context } from './Context'
@@ -65,6 +65,23 @@ const ProductItem = (props: Product) => {
 			</span>
 		</li>
 	)
+}
+
+export const newProductItem = (
+	ProductItem: (props: Product) => JSX.Element,
+) => {
+	const EnhancedProductItem = (product: Product) => (
+		<div className='relative'>
+			<ProductItem {...product} />
+			<div className='absolute left-[93%] bottom-[65%] lg:bottom-[70%] rotate-[5deg] font-heading-narrow rounded pt-[0.1em] md:pt-[0.2em] px-[0.4em] md:px-[0.7em] pb-[0.45em] md:pb-[0.6em] leading-none text-[var(--black)] text-[14px] font-extrabold bg-[var(--light-green)] uppercase'>
+				{' '}
+				new
+			</div>
+		</div>
+	)
+
+	EnhancedProductItem.displayName = 'EnhancedProductItem'
+	return EnhancedProductItem
 }
 
 export default ProductItem

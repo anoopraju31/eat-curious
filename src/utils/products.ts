@@ -19,6 +19,7 @@ export interface Product {
 	img: string
 	thin?: boolean
 	imgAnimation: Animation[]
+	new?: boolean
 }
 
 export const backgrounds: string[] = [
@@ -103,6 +104,7 @@ export const products: Product[] = [
 		id: 2,
 		name: 'mince',
 		link: '/products/mince',
+		new: true,
 		img: 'url("/images/products/mince-9-e1689971464732-471x473.png")',
 		imgAnimation: [
 			{
@@ -151,6 +153,7 @@ export const products: Product[] = [
 		id: 3,
 		name: 'negg',
 		link: '/products/negg',
+		new: true,
 		img: 'url("/images/products/negg-e1690228015512-473x433.png")',
 		imgAnimation: [
 			{
