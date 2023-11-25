@@ -34,6 +34,7 @@ const ProductItem = (props: Product) => {
 			className='w-auto mt-auto px-[0.2em] inline-block overflow-hidden relative flex-grow-0 flex-shrink-0 basis-auto'>
 			<Link
 				href={link}
+				onClick={handleMouseLeaveControls}
 				className={`'relative inline-block font-heading-narrow font-[900] text-[clamp(40px,10vh,80px)] lg:text-[9vw] uppercase tracking-[0.01em] leading-[1em] md:leading-[0.7em] ${
 					values?.productId === id || values?.productId === -1
 						? 'text-[var(--white)]'
