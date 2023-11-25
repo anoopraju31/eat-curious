@@ -1,20 +1,23 @@
-import { PrivacyPolicy, privacyPolicies } from '@/utils/privacyPolicy'
-import React from 'react'
 import { Footer } from '../components'
+import { PrivacyPolicy, privacyPolicies } from '@/utils/privacyPolicy'
 
-const Policy = ({ heading, descriptions }: PrivacyPolicy) => (
-	<article>
-		<h4 className='font-heading-narrow font-extrabold leading-[0.85em] mb-[0.7em] uppercase -tracking-[0.01em] text-[40px] md:text-[76px] lg:text-[56px]   '>
-			{heading}
-		</h4>
-		{descriptions.map((description, idx) => (
-			<p key={idx} className='mb-5'>
-				{' '}
-				{description}{' '}
-			</p>
-		))}
-	</article>
-)
+const Policy = (props: PrivacyPolicy) => {
+	const { heading, descriptions } = props
+
+	return (
+		<article>
+			<h4 className='font-heading-narrow font-extrabold leading-[0.85em] mb-[0.7em] uppercase -tracking-[0.01em] text-[40px] md:text-[76px] lg:text-[56px]   '>
+				{heading}
+			</h4>
+			{descriptions.map((description, idx) => (
+				<p key={idx} className='mb-5'>
+					{' '}
+					{description}{' '}
+				</p>
+			))}
+		</article>
+	)
+}
 
 const PrivacyPolicyPage = () => {
 	return (
