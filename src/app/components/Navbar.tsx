@@ -152,20 +152,9 @@ const Navbar = () => {
 					</li>
 				</motion.ul>
 
-				{/* Logo */}
-				<motion.div
-					variants={view}
-					initial='initial'
-					whileInView='animate'
-					className='w-[113px] md:w-48 lg:w-[184px] block mt-4 mx-auto flex-shrink-0'>
-					<Link href='/'>
-						<Logo
-							fillWhite={
-								textWhite && (values?.isTextWhite as boolean) && !navOpen
-							}
-						/>
-					</Link>
-				</motion.div>
+				<Logo
+					fillWhite={textWhite && (values?.isTextWhite as boolean) && !navOpen}
+				/>
 
 				{/* Navigation desktop - right */}
 				<motion.ul
