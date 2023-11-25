@@ -1,21 +1,25 @@
 'use client'
+
 import { useState, useEffect } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { pop, view } from '@/utils/animations'
 
-export interface Props {
+export interface AccordionProps {
 	id?: number
 	question: string
 	answer: string
 	icon?: string
 	iconBackground?: string
 }
-const Accordion = ({ id, question, answer, icon, iconBackground }: Props) => {
+
+const Accordion = (props: AccordionProps) => {
+	const { id, question, answer, icon, iconBackground } = props
 	const [show, setShow] = useState<boolean>(false)
 
 	useEffect(() => {
 		if (id === 1) setShow(true)
 	}, [id])
+
 	return (
 		<div
 			onClick={() => setShow((prev) => !prev)}
