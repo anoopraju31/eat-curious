@@ -1,4 +1,5 @@
 'use client'
+
 import {
 	Dispatch,
 	ReactNode,
@@ -26,6 +27,7 @@ const Context = ({ children }: Props) => {
 	const [isTextWhite, setIsTextWhite] = useState<boolean>(true)
 	const [productId, setProductId] = useState<number>(-1)
 	const [backgroundColor, setBackgroundColor] = useState<string>('')
+
 	return (
 		<context.Provider
 			value={{
