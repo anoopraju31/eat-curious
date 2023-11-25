@@ -1,21 +1,23 @@
 'use client'
+
+import { useContext } from 'react'
+import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { BsInstagram, BsFacebook, BsLinkedin } from 'react-icons/bs'
-import { FeedMeMore } from '.'
-import { usePathname } from 'next/navigation'
-import { isValidProductsRoute } from '@/utils/routeCheck'
 import { context } from './Context'
-import { useContext } from 'react'
+import { FeedMeMore } from '.'
+import { isValidProductsRoute } from '@/utils/routeCheck'
 
 const Footer = () => {
 	const pathName = usePathname()
 	const values = useContext(context)
 	const style = { '--color': values?.backgroundColor } as React.CSSProperties
+
 	return (
 		<footer
 			id='footer'
 			style={style}
-			className={`w-full text-[var(--black)] pt-[30px] 600:py-[40px] pb-[40px] 600:pb-[50px] lg:py-[60px] xl:pt-[90px] z-[999] relative overflow-hidden text-center lg:flex lg:flex-col lg:justify-center before:content-[""] before:block before:absolute before:w-[150vw] before:left-1/2 before:top-0 before:h-0 before:pb-[132%] before:-translate-x-1/2 ${
+			className={`w-full text-[var(--black)] pt-[30px] 600:py-[40px] pb-[40px] 600:pb-[50px] lg:py-[60px] xl:pt-[90px] z-[99] relative overflow-hidden text-center lg:flex lg:flex-col lg:justify-center before:content-[""] before:block before:absolute before:w-[150vw] before:left-1/2 before:top-0 before:h-0 before:pb-[132%] before:-translate-x-1/2 ${
 				isValidProductsRoute(pathName)
 					? 'before:bg-[var(--color)]'
 					: 'before:bg-[var(--pink)]'
@@ -74,17 +76,29 @@ const Footer = () => {
 					<div className='w-full flex justify-center'>
 						<ul className='flex justify-center gap-4 text-lg'>
 							<li>
-								<a href='https://www.instagram.com' target='_blank'>
+								<a
+									href='https://www.instagram.com'
+									rel='noopener'
+									target='_blank'>
+									<span className='sr-only'> Instagram </span>
 									<BsInstagram />
 								</a>
 							</li>
 							<li>
-								<a href='https://wwww.facebook.com' target='_blank'>
+								<a
+									href='https://wwww.facebook.com'
+									rel='noopener'
+									target='_blank'>
+									<span className='sr-only'> Facebook </span>
 									<BsFacebook />
 								</a>
 							</li>
 							<li>
-								<a href='https://www.linkedin.com' target='_blank'>
+								<a
+									href='https://www.linkedin.com'
+									rel='noopener'
+									target='_blank'>
+									<span className='sr-only'> LinkedIn </span>
 									<BsLinkedin />
 								</a>
 							</li>
