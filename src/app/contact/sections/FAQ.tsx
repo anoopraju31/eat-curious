@@ -1,6 +1,5 @@
 import { Accordion } from '@/app/components'
 import { faqs } from '@/utils/faq'
-import React from 'react'
 
 const FAQ = () => {
 	return (
