@@ -22,8 +22,8 @@ export default function Home() {
 					background='#ff73b5'
 					position='fixed bottom-0'
 				/>
-				{/* <SpinnerSticker /> */}
 				<BrandsCarousel />
+
 				{/* Sections */}
 				<Curious />
 				<Inspiring />
