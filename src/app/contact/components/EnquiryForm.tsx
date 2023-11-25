@@ -1,3 +1,5 @@
+'use client'
+
 import { motion } from 'framer-motion'
 import { EnquiryInput, EnquirySelect, EnquiryTextarea } from '.'
 import { enquirySelect } from '@/utils/enquiry'
