@@ -14,15 +14,16 @@ import {
 import { context } from './Context'
 import { useRouter } from 'next/navigation'
 import { isValidProductsRoute } from '@/utils/routeCheck'
+import useNavbarMenuToggle from '../hooks/useNavbarMenuToggle'
 
 const Navbar = () => {
 	const [scrollHeight, setScrollHeight] = useState<number>(0)
 	const [showNavbar, setShowNavbar] = useState<boolean>(true)
 	const [textWhite, setTextWhite] = useState<boolean>(true)
-	const [navOpen, setNavOpen] = useState<boolean>(false)
 	const { scrollY } = useScroll()
 	const pathName = usePathname()
 	const router = useRouter()
+	const { navOpen, changeNavMenu, toggleNavMenu } = useNavbarMenuToggle()
 
 	const values = useContext(context)
 
@@ -106,25 +107,6 @@ const Navbar = () => {
 		}
 	}, [scrollHeight, pathName])
 
-	useLayoutEffect(() => {
-		const resizeListener = () => {
-			if (typeof window !== 'undefined') {
-				const currentWidth =
-					window.innerWidth ||
-					document.documentElement.clientWidth ||
-					document.body.clientWidth
-
-				if (currentWidth >= 768) setNavOpen(false)
-			}
-		}
-
-		window.addEventListener('resize', resizeListener)
-
-		return () => {
-			window.removeEventListener('resize', resizeListener)
-		}
-	}, [])
-
 	useEffect(() => {
 		if (pathName !== '/products') values?.setIsTextWhite(true)
 	}, [pathName, values])
@@ -191,12 +173,11 @@ const Navbar = () => {
 							className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
 							<Link
 								onClick={() => {
-									setNavOpen(false)
+									changeNavMenu(false)
 									router.push('/products')
 								}}
 								href='/products'>
-								{' '}
-								Products{' '}
+								Products
 							</Link>
 						</motion.li>
 
@@ -208,12 +189,11 @@ const Navbar = () => {
 							className='w-full text-[13vw] relative leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
 							<Link
 								onClick={() => {
-									setNavOpen(false)
+									changeNavMenu(false)
 									router.push('/contact')
 								}}
 								href='/contact'>
-								{' '}
-								Contact{' '}
+								Contact
 							</Link>
 						</motion.li>
 					</ul>
@@ -222,7 +202,7 @@ const Navbar = () => {
 				{/* Menu */}
 				<button
 					type='button'
-					onClick={() => setNavOpen((prev) => !prev)}
+					onClick={toggleNavMenu}
 					style={{
 						backgroundColor: navOpen
 							? '#042f1a'
