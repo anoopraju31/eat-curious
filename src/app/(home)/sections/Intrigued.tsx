@@ -1,15 +1,17 @@
 'use client'
-import { Button } from '@/app/components'
+
+import { useContext } from 'react'
+import { usePathname } from 'next/navigation'
 import Image from 'next/image'
 import { motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
 import { context } from '@/app/components/Context'
-import { useContext } from 'react'
+import { Button } from '@/app/components'
 import { isValidProductsRoute } from '@/utils/routeCheck'
 
 const Intrigued = () => {
 	const pathName = usePathname()
 	const values = useContext(context)
+
 	return (
 		<section
 			id='intrigued'
