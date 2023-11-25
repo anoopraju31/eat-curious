@@ -5,9 +5,8 @@ import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 import { BsInstagram, BsFacebook, BsLinkedin } from 'react-icons/bs'
 import { context } from './Context'
-import { FeedMeMore, FooterForm } from '.'
+import { FeedMeMore, FooterForm, FooterLink } from '.'
 import { isValidProductsRoute } from '@/utils/routeCheck'
-import FooterLink from './FooterLink'
 
 const Footer = () => {
 	const pathName = usePathname()
