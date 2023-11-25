@@ -1,4 +1,3 @@
-import React from 'react'
 import { AccordionsSection, Hero, Tickers } from './sections'
 import { foods } from '@/utils/foods'
 import { Footer } from '@/app/components'
@@ -13,6 +12,7 @@ interface Props {
 const PiecesPage = (props: Props) => {
 	const productId = props.params.productId
 	const product = foods.filter((food) => food.id == productId)[0]
+
 	return (
 		<main className='w-full mx-auto bg-[var(--white)]'>
 			<Hero title={product.title} tabs={product.tabs} />
