@@ -188,3 +188,16 @@ export const transition = {
 	duration: 0.4,
 	ease: [0.5, 1.51, 0.55, 0.89],
 }
+
+export const foodTileTransition = (id: number) => ({
+	scale: {
+		duration: 0.5,
+		type: 'spring',
+		bounce: 0.75,
+		ease: [0.5, 1.51, 0.55, 0.89],
+	},
+	opacity: {
+		duration: 0.5,
+	},
+	delay: 0.2 * id,
+})
