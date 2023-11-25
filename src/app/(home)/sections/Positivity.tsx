@@ -1,7 +1,8 @@
 'use client'
+
 import Image from 'next/image'
-import { pop } from '@/utils/animations'
 import { motion } from 'framer-motion'
+import { pop } from '@/utils/animations'
 
 const Positivity = () => {
 	return (
