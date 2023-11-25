@@ -1,115 +1,25 @@
 'use client'
 
-import Link from 'next/link'
+import useNavbarVisibility from '../hooks/useNavbarVisibility'
+import useNavbarMenuToggle from '../hooks/useNavbarMenuToggle'
 import { usePathname } from 'next/navigation'
-import { useState, useLayoutEffect, useContext, useEffect } from 'react'
+import { useRouter } from 'next/navigation'
+import Link from 'next/link'
+import { motion } from 'framer-motion'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
 import { Button, FooterLink, Logo } from '.'
-import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import {
 	slideDownView,
 	slideDownViewTransition,
 	view,
 } from '@/utils/animations'
-import { context } from './Context'
-import { useRouter } from 'next/navigation'
 import { isValidProductsRoute } from '@/utils/routeCheck'
-import useNavbarMenuToggle from '../hooks/useNavbarMenuToggle'
 
 const Navbar = () => {
-	const [scrollHeight, setScrollHeight] = useState<number>(0)
-	const [showNavbar, setShowNavbar] = useState<boolean>(true)
-	const [textWhite, setTextWhite] = useState<boolean>(true)
-	const { scrollY } = useScroll()
+	const { navOpen, changeNavMenu, toggleNavMenu } = useNavbarMenuToggle()
+	const { showNavbar, textWhite, values } = useNavbarVisibility()
 	const pathName = usePathname()
 	const router = useRouter()
-	const { navOpen, changeNavMenu, toggleNavMenu } = useNavbarMenuToggle()
-
-	const values = useContext(context)
-
-	useMotionValueEvent(scrollY, 'change', (latest) => {
-		setShowNavbar(scrollHeight > latest ? true : false)
-		setScrollHeight(latest)
-	})
-
-	useLayoutEffect(() => {
-		function scrollHandler() {
-			const aboutSection = document.querySelector(
-				'#about',
-			) as HTMLElement | null
-			const flavoursomeSection = document.querySelector(
-				'#flavoursome',
-			) as HTMLElement | null
-			const featuresSection = document.querySelector(
-				'#features',
-			) as HTMLElement | null
-			const foodsSection = document.querySelector(
-				'#foods',
-			) as HTMLElement | null
-			const intriguedSection = document.querySelector(
-				'#intrigued',
-			) as HTMLElement | null
-
-			const aboutOffsetTop: number = aboutSection ? aboutSection.offsetTop : 0
-			const flavoursomeOffsetTop: number = flavoursomeSection
-				? flavoursomeSection.offsetTop
-				: 0
-			const featuresOffsetTop: number = featuresSection
-				? featuresSection.offsetTop
-				: 0
-			const foodsOffsetTop: number = foodsSection ? foodsSection.offsetTop : 0
-			const intriguedOffsetTop: number = intriguedSection
-				? intriguedSection.offsetTop
-				: 0
-
-			if (pathName == '/') {
-				if (scrollHeight < aboutOffsetTop) setTextWhite(true)
-				else if (
-					scrollHeight >= aboutOffsetTop &&
-					scrollHeight <
-						featuresOffsetTop - 2 * (flavoursomeSection?.clientHeight || 0)
-				)
-					setTextWhite(false)
-				else if (
-					scrollHeight >=
-						featuresOffsetTop - (flavoursomeSection?.clientHeight || 0) &&
-					scrollHeight < featuresOffsetTop
-				)
-					setTextWhite(true)
-				else if (
-					scrollHeight >= featuresOffsetTop &&
-					scrollHeight < foodsOffsetTop
-				)
-					setTextWhite(false)
-				else if (
-					scrollHeight >= foodsOffsetTop &&
-					scrollHeight < intriguedOffsetTop - window.innerHeight / 4
-				)
-					setTextWhite(true)
-				else setTextWhite(false)
-			} else if (
-				pathName === '/contact' ||
-				pathName === '/privacy-policy' ||
-				pathName === '/products'
-			) {
-				setTextWhite(true)
-			} else if (isValidProductsRoute(pathName)) {
-				if (scrollHeight < intriguedOffsetTop) {
-					setTextWhite(true)
-				} else setTextWhite(false)
-			}
-		}
-
-		window.addEventListener('scroll', scrollHandler)
-
-		return () => {
-			window.removeEventListener('scroll', scrollHandler)
-		}
-	}, [scrollHeight, pathName])
-
-	useEffect(() => {
-		if (pathName !== '/products') values?.setIsTextWhite(true)
-	}, [pathName, values])
 
 	return (
 		<nav
