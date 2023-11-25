@@ -1,8 +1,9 @@
 'use client'
+
+import { useContext } from 'react'
 import { Ticker } from '@/app/components'
 import { context } from '@/app/components/Context'
 import { tickers } from '@/utils/ticker'
-import { useContext } from 'react'
 
 interface Props {
 	ticks: string[]
@@ -10,6 +11,7 @@ interface Props {
 
 const Tickers = ({ ticks }: Props) => {
 	const values = useContext(context)
+
 	return (
 		<>
 			<Ticker
