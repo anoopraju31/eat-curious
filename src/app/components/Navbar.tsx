@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState, useLayoutEffect, useContext, useEffect } from 'react'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
-import { Button, Logo } from '.'
+import { Button, FooterLink, Logo } from '.'
 import { motion, useMotionValueEvent, useScroll } from 'framer-motion'
 import { view } from '@/utils/animations'
 import { context } from './Context'
@@ -238,6 +238,7 @@ const Navbar = () => {
 
 				{/* Menu */}
 				<button
+					type='button'
 					onClick={() => setNavOpen((prev) => !prev)}
 					style={{
 						backgroundColor: navOpen
@@ -253,6 +254,7 @@ const Navbar = () => {
 							? `bg-[${values?.backgroundColor}]`
 							: 'bg-[var(--pink)]'
 					} transition-colors duration-500 ease-in-out`}>
+					<div className='sr-only'> Menu </div>
 					<div className='w-full h-auto block align-middle'>
 						<span
 							className={`block w-full h-[3px] mb-1 ${
@@ -272,25 +274,21 @@ const Navbar = () => {
 				{/* Social Media Links */}
 				{navOpen && (
 					<ul className='w-full absolute bottom-5 left-0 px-[var(--padding-x)] md:hidden text-[var(--black)] flex justify-center gap-5'>
-						<li>
-							<a href='https://www.instagram.com/eat_curious/' target='_blank'>
-								<BsInstagram />
-							</a>
-						</li>
-
-						<li>
-							<a href='https://www.facebook.com/eatcurious/' target='_blank'>
-								<BsFacebook />
-							</a>
-						</li>
-
-						<li>
-							<a
-								href='https://www.linkedin.com/company/eat-curious/?originalSubdomain=uk'
-								target='_blank'>
-								<BsLinkedin />
-							</a>
-						</li>
+						<FooterLink
+							link='https://www.instagram.com'
+							title='Instagram'
+							Icon={BsInstagram}
+						/>
+						<FooterLink
+							link='https://wwww.facebook.com'
+							title='Facebook'
+							Icon={BsFacebook}
+						/>
+						<FooterLink
+							Icon={BsLinkedin}
+							link='https://www.linkedin.com'
+							title='LinkedIn'
+						/>
 					</ul>
 				)}
 			</div>
