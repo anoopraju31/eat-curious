@@ -1,5 +1,6 @@
 import React from 'react'
-import { EnquiryInput } from '.'
+import { EnquiryInput, EnquirySelect } from '.'
+import { enquirySelect } from '@/utils/enquiry'
 
 const EnquiryForm = () => {
 	return (
@@ -27,37 +28,12 @@ const EnquiryForm = () => {
 					type='text'
 				/>
 
-				{/* Interest */}
-				<div className='mb-4'>
-					<label htmlFor='interest-in' className='sr-only'>
-						Interest In
-					</label>
-					<select
-						name=''
-						id='interest-in'
-						className='w-full h-auto px-[1.3em] pt-[0.7em] pb-[1em] font-medium tracking-[0.01em] font-heading-narrow text-[18px] text-[var(--white)] text-left leading-[1em] uppercase rounded border-none outline-none shadow-none bg-[rgba(255,246,246,0.1)] placeholder:text-[rgba(4,47,26,0.5)] focus:shadow-inset appearance-none bg-plus bg-no-repeat bg-select relative focus:border-none focus:outline-none'>
-						<option
-							value=''
-							className='text-[rgba(255, 246,246, 0.5)] bg-[var(--black)] border-none outline-none px-[1.3em] pt-[0.7em] pb-[1em]  '>
-							I{"'"}m interested in...
-						</option>
-						<option
-							value=''
-							className='text-[rgba(255, 246,246, 0.5)] bg-[var(--black)] border-none outline-none px-[1.3em] pt-[0.7em] pb-[1em]  '>
-							Becoming a distribution partner
-						</option>
-						<option
-							value=''
-							className='text-[rgba(255, 246,246, 0.5)] bg-[var(--black)] border-none outline-none px-[1.3em] pt-[0.7em] pb-[1em]  '>
-							Stocking an Eat Curious product
-						</option>
-						<option
-							value=''
-							className='text-[rgba(255, 246,246, 0.5)] bg-[var(--black)] border-none outline-none px-[1.3em] pt-[0.7em] pb-[1em]  '>
-							Curious for more...
-						</option>
-					</select>
-				</div>
+				<EnquirySelect
+					id='enquiry-select'
+					label='Enquiry Type'
+					name='enquiry select'
+					options={enquirySelect}
+				/>
 
 				{/* Message */}
 				<div className='mb-4'>
