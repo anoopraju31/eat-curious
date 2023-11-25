@@ -7,6 +7,26 @@ import { BsInstagram, BsFacebook, BsLinkedin } from 'react-icons/bs'
 import { context } from './Context'
 import { FeedMeMore, FooterForm } from '.'
 import { isValidProductsRoute } from '@/utils/routeCheck'
+import { IconType } from 'react-icons'
+
+interface FooterLinkProps {
+	link: string
+	title: string
+	Icon: IconType
+}
+
+const FooterLink = (props: FooterLinkProps) => {
+	const { link, title, Icon } = props
+
+	return (
+		<li>
+			<a href={link} rel='noopener' target='_blank'>
+				<span className='sr-only'> {title} </span>
+				<Icon />
+			</a>
+		</li>
+	)
+}
 
 const Footer = () => {
 	const pathName = usePathname()
@@ -42,33 +62,21 @@ const Footer = () => {
 				<div className='flex flex-col md:flex-row justify-center items-center gap-[30px]'>
 					<div className='w-full flex justify-center'>
 						<ul className='flex justify-center gap-4 text-lg'>
-							<li>
-								<a
-									href='https://www.instagram.com'
-									rel='noopener'
-									target='_blank'>
-									<span className='sr-only'> Instagram </span>
-									<BsInstagram />
-								</a>
-							</li>
-							<li>
-								<a
-									href='https://wwww.facebook.com'
-									rel='noopener'
-									target='_blank'>
-									<span className='sr-only'> Facebook </span>
-									<BsFacebook />
-								</a>
-							</li>
-							<li>
-								<a
-									href='https://www.linkedin.com'
-									rel='noopener'
-									target='_blank'>
-									<span className='sr-only'> LinkedIn </span>
-									<BsLinkedin />
-								</a>
-							</li>
+							<FooterLink
+								link='https://www.instagram.com'
+								title='Instagram'
+								Icon={BsInstagram}
+							/>
+							<FooterLink
+								link='https://wwww.facebook.com'
+								title='Facebook'
+								Icon={BsFacebook}
+							/>
+							<FooterLink
+								Icon={BsLinkedin}
+								link='https://www.linkedin.com'
+								title='LinkedIn'
+							/>
 						</ul>
 					</div>
 
