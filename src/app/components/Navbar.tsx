@@ -3,11 +3,10 @@
 import useNavbarVisibility from '../hooks/useNavbarVisibility'
 import useNavbarMenuToggle from '../hooks/useNavbarMenuToggle'
 import { usePathname } from 'next/navigation'
-import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { motion } from 'framer-motion'
 import { BsFacebook, BsInstagram, BsLinkedin } from 'react-icons/bs'
-import { Button, FooterLink, Logo } from '.'
+import { Button, FooterLink, Logo, NavMobileMenu } from '.'
 import {
 	slideDownView,
 	slideDownViewTransition,
@@ -19,7 +18,7 @@ const Navbar = () => {
 	const { navOpen, changeNavMenu, toggleNavMenu } = useNavbarMenuToggle()
 	const { showNavbar, textWhite, values } = useNavbarVisibility()
 	const pathName = usePathname()
-	const router = useRouter()
+	const isFillWhite = textWhite && (values?.isTextWhite as boolean) && !navOpen
 
 	return (
 		<nav
@@ -48,9 +47,7 @@ const Navbar = () => {
 					</li>
 				</motion.ul>
 
-				<Logo
-					fillWhite={textWhite && (values?.isTextWhite as boolean) && !navOpen}
-				/>
+				<Logo fillWhite={isFillWhite} />
 
 				{/* Navigation desktop - right */}
 				<motion.ul
@@ -73,41 +70,7 @@ const Navbar = () => {
 				</motion.ul>
 
 				{/* Mobile Navigation Menu */}
-				{navOpen && (
-					<ul className='flex md:hidden w-full h-full z-30 mx-auto py-[80px] md:py-[100px] xl:py-[120px] flex-col justify-center absolute top-0 left-0 right-0 bottom-0 overflow-auto text-center '>
-						<motion.li
-							variants={slideDownView}
-							initial='initial'
-							whileInView='view'
-							transition={slideDownViewTransition(0.8)}
-							className='w-full text-[13vw] leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
-							<Link
-								onClick={() => {
-									changeNavMenu(false)
-									router.push('/products')
-								}}
-								href='/products'>
-								Products
-							</Link>
-						</motion.li>
-
-						<motion.li
-							variants={slideDownView}
-							initial='initial'
-							whileInView='view'
-							transition={slideDownViewTransition(0.9)}
-							className='w-full text-[13vw] relative leading-[0.9em] font-heading-narrow font-[900] uppercase text-[var(--black)]'>
-							<Link
-								onClick={() => {
-									changeNavMenu(false)
-									router.push('/contact')
-								}}
-								href='/contact'>
-								Contact
-							</Link>
-						</motion.li>
-					</ul>
-				)}
+				{navOpen && <NavMobileMenu closeMenu={changeNavMenu} />}
 
 				{/* Menu */}
 				<button
