@@ -1,6 +1,6 @@
 'use client'
 
-import { FC, useContext, useState } from 'react'
+import { useContext, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
 import Link from 'next/link'
 import { context } from './Context'
