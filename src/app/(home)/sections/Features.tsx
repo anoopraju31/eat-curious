@@ -1,39 +1,44 @@
 'use client'
 import Image from 'next/image'
-import { pop } from '@/utils/animations'
 import { motion } from 'framer-motion'
+import { pop } from '@/utils/animations'
 
-type Props = {
+type FeatureCardProps = {
 	title: string
 	description: string
 	img: string
 }
-const FeatureCard = ({ title, description, img }: Props) => (
-	<motion.div
-		variants={pop}
-		initial='initial'
-		whileInView='animate'
-		viewport={{ once: true }}
-		className='600:w-1/2 lg:w-full px-4'>
-		<div className='py-8 bg-[var(--white)] flex justify-center items-center'>
-			<Image
-				className='max-w-full h-auto'
-				src={img}
-				alt={title}
-				width={193}
-				height={193}
-			/>
-		</div>
-		<div>
-			<h5 className='my-2 text-xl md:text-[32px] font-heading-narrow font-medium leading-normal uppercase'>
-				{title}
-			</h5>
-			<p className='my-4 font-text-font font-light text-base md:text-xl leading-[1.6em]'>
-				{description}
-			</p>
-		</div>
-	</motion.div>
-)
+
+const FeatureCard = (props: FeatureCardProps) => {
+	const { title, description, img } = props
+
+	return (
+		<motion.div
+			variants={pop}
+			initial='initial'
+			whileInView='animate'
+			viewport={{ once: true }}
+			className='600:w-1/2 lg:w-full px-4'>
+			<div className='py-8 bg-[var(--white)] flex justify-center items-center'>
+				<Image
+					className='max-w-full h-auto'
+					src={img}
+					alt={title}
+					width={193}
+					height={193}
+				/>
+			</div>
+			<div>
+				<h5 className='my-2 text-xl md:text-[32px] font-heading-narrow font-medium leading-normal uppercase'>
+					{title}
+				</h5>
+				<p className='my-4 font-text-font font-light text-base md:text-xl leading-[1.6em]'>
+					{description}
+				</p>
+			</div>
+		</motion.div>
+	)
+}
 
 const Features = () => {
 	return (
