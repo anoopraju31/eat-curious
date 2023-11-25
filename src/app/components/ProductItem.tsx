@@ -1,23 +1,26 @@
 'use client'
-import Link from 'next/link'
-import React, { useContext, useState } from 'react'
+
+import { useContext, useState } from 'react'
 import { motion, useAnimation } from 'framer-motion'
+import Link from 'next/link'
+import { context } from './Context'
 import { transition } from '@/utils/animations'
 import { Product, backgrounds, layouts } from '@/utils/products'
-import { context } from './Context'
 
-const ProductItem = ({ id, name, link, img, thin, imgAnimation }: Product) => {
+const ProductItem = (props: Product) => {
+	const { id, name, link, img, thin, imgAnimation } = props
 	const [background, setBackground] = useState<string>('transparent')
 	const values = useContext(context)
 	const controls = useAnimation()
-	function handleMouseEnterControls() {
+
+	const handleMouseEnterControls = () => {
 		controls.start('hover')
 		setBackground(backgrounds[id - 1])
 		values?.setProductId(id)
 		values?.setIsTextWhite(false)
 	}
 
-	function handleMouseLeaveControls() {
+	const handleMouseLeaveControls = () => {
 		controls.start('initial')
 		setBackground('transparent')
 		values?.setProductId(-1)
@@ -31,13 +34,11 @@ const ProductItem = ({ id, name, link, img, thin, imgAnimation }: Product) => {
 			className='w-auto mt-auto px-[0.2em] inline-block overflow-hidden relative flex-grow-0 flex-shrink-0 basis-auto'>
 			<Link
 				href={link}
-				style={{
-					color:
-						values?.productId === id || values?.productId === -1
-							? '#fff6f6'
-							: '#042f1a',
-				}}
-				className='relative inline-block font-heading-narrow font-[900] text-[clamp(40px,10vh,80px)] lg:text-[9vw] uppercase tracking-[0.01em] leading-[1em] md:leading-[0.7em] text-[var(--white)]'>
+				className={`'relative inline-block font-heading-narrow font-[900] text-[clamp(40px,10vh,80px)] lg:text-[9vw] uppercase tracking-[0.01em] leading-[1em] md:leading-[0.7em] ${
+					values?.productId === id || values?.productId === -1
+						? 'text-[var(--white)]'
+						: 'text-[var(--black)]'
+				}`}>
 				{name}
 			</Link>
 
@@ -57,7 +58,8 @@ const ProductItem = ({ id, name, link, img, thin, imgAnimation }: Product) => {
 							backgroundImage: img,
 							gridArea: layouts[idx],
 						}}
-						className='relative bg-no-repeat bg-center bg-contain'></motion.span>
+						className='relative bg-no-repeat bg-center bg-contain'
+					/>
 				))}
 			</span>
 		</li>
