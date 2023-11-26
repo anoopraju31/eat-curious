@@ -26,7 +26,7 @@ export const context = createContext<ContextType | null>(null)
 const Context = ({ children }: Props) => {
 	const [isTextWhite, setIsTextWhite] = useState<boolean>(true)
 	const [productId, setProductId] = useState<number>(-1)
-	const [backgroundColor, setBackgroundColor] = useState<string>('')
+	const [backgroundColor, setBackgroundColor] = useState<string>('#ff73b5')
 
 	return (
 		<context.Provider

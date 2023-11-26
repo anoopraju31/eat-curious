@@ -79,7 +79,8 @@ const useNavbarVisibility = () => {
 			) {
 				setTextWhite(true)
 			} else if (isValidProductsRoute(pathName)) {
-				if (scrollHeight < intriguedOffsetTop) {
+				if (!intriguedOffsetTop) setTextWhite(true)
+				else if (scrollHeight < intriguedOffsetTop) {
 					setTextWhite(true)
 				} else setTextWhite(false)
 			}
