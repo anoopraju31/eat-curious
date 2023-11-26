@@ -1,4 +1,5 @@
 import { Metadata } from 'next'
+import { notFound } from 'next/navigation'
 import { AccordionsSection, Hero, Tickers } from './sections'
 import { capitalizeWords, foods } from '@/utils/foods'
 import { Footer } from '@/app/components'
@@ -12,6 +13,14 @@ interface Props {
 
 export async function generateMetadata(props: Props): Promise<Metadata> {
 	const productId = props.params.productId
+
+	const product = foods.filter((food) => food.id === productId)
+
+	if (!product.length)
+		return {
+			title: 'Product Not Found - Eat Curious',
+		}
+
 	return {
 		title: capitalizeWords(productId) + ' - Eat Curious',
 	}
@@ -20,6 +29,8 @@ export async function generateMetadata(props: Props): Promise<Metadata> {
 const PiecesPage = (props: Props) => {
 	const productId = props.params.productId
 	const product = foods.filter((food) => food.id == productId)[0]
+
+	if (!product) return notFound()
 
 	return (
 		<main className='w-full mx-auto bg-[var(--white)]'>
