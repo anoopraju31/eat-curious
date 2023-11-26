@@ -11,13 +11,11 @@ const error = () => {
 						404
 					</h1>
 					<h2 className='hidden md:block font-heading-narrow font-extrabold leading-[0.85em] tracking-[0.01em] uppercase mb-[0.2em] md:text-[160px]'>
-						{' '}
-						Page Not Found{' '}
+						Page Not Found.
 					</h2>
 					<p className='mb-5 text-xl lg:max-w-sm'>
-						{' '}
 						Whoops. We can{"'"}t seem to find that page. Click below to go back
-						to the homepage.{' '}
+						to the homepage.
 					</p>
 					<Button title='Go To homepage' link='/' background='#ff73b5' />
 				</div>
