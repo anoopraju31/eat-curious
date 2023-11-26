@@ -1,5 +1,12 @@
+import { Metadata } from 'next'
 import { Footer } from '../components'
 import { PrivacyPolicy, privacyPolicies } from '@/utils/privacyPolicy'
+
+export const metadata: Metadata = {
+	title: 'Privacy Policy - Eat Curious',
+	description:
+		"Who we are Our website address is: https://eat-curious.com Comments When visitors leave comments on the site we collect the data shown in the comments form, and also the visitor's IP address and browser user agent string to help spam detection. An anonymized string created from your email address (also called a hash) may be provided […]",
+}
 
 const Policy = (props: PrivacyPolicy) => {
 	const { heading, descriptions } = props
