@@ -2,7 +2,7 @@
 
 import { Button, Footer } from '@/app/components'
 
-const error = () => {
+const NotFound = () => {
 	return (
 		<main className='w-full mx-auto bg-[var(--black)] text-[var(--white)]'>
 			<section className='sticky top-0 h-auto lg:min-h-screen px-[var(--padding-x)] md:px-[var(--padding-x-sm)] xl:px-[var(--padding-x-lg)] py-[var(--padding-y)] md:py-[var(--padding-y-sm)] lg:py-[var(--padding-y-lg)] lg:flex lg:justify-between lg:items-center '>
@@ -25,4 +25,4 @@ const error = () => {
 	)
 }
 
-export default error
+export default NotFound
