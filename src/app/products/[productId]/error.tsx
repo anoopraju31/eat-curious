@@ -1,6 +1,6 @@
 'use client'
+
 import { Button, Footer } from '@/app/components'
-import React from 'react'
 
 const error = () => {
 	return (
@@ -14,12 +14,12 @@ const error = () => {
 						{' '}
 						Page Not Found{' '}
 					</h2>
-					<p className='mb-5 text-xl max-w-sm'>
+					<p className='mb-5 text-xl lg:max-w-sm'>
 						{' '}
 						Whoops. We can{"'"}t seem to find that page. Click below to go back
 						to the homepage.{' '}
 					</p>
-					<Button title='Go To homepage' link='/contact' background='#ff73b5' />
+					<Button title='Go To homepage' link='/' background='#ff73b5' />
 				</div>
 			</section>
 			<Footer />
