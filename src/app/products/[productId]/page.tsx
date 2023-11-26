@@ -1,8 +1,8 @@
+import { Metadata } from 'next'
 import { AccordionsSection, Hero, Tickers } from './sections'
 import { capitalizeWords, foods } from '@/utils/foods'
 import { Footer } from '@/app/components'
 import { Intrigued } from '@/app/(home)/sections'
-import { Metadata } from 'next'
 
 interface Props {
 	params: {
